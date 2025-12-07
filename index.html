@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Harsha - Food Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        
+        :root {
+            --primary-black: #000000;
+            --primary-green: #00cc66;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #333333;
+            --uber-black: #1a1a1a;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styling - Uber Inspired */
+        header {
+            background-color: var(--uber-black);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .hotel-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+        
+        .hotel-name span {
+            color: var(--primary-green);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #ccc;
+            font-style: italic;
+            border-left: 2px solid var(--primary-green);
+            padding-left: 10px;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .delivery-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .delivery-info i {
+            color: var(--primary-green);
+        }
+        
+        /* Main Layout */
+        .main-content {
+            display: flex;
+            margin-top: 20px;
+            gap: 30px;
+        }
+        
+        /* Categories Sidebar */
+        .categories-sidebar {
+            flex: 0 0 300px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            height: fit-content;
+        }
+        
+        .categories-sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--uber-black);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .categories-sidebar h2 i {
+            color: var(--primary-green);
+        }
+        
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .category-item:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-item.active {
+            background-color: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background-color: var(--light-gray);
+            color: var(--primary-green);
+        }
+        
+        .category-item.active .category-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .category-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .category-info p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .category-item.active .category-info p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Menu Items Section */
+        .menu-section {
+            flex: 1;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .section-header h2 {
+            font-size: 26px;
+            color: var(--uber-black);
+        }
+        
+        .items-count {
+            background-color: var(--light-gray);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .menu-item {
+            border: 1px solid var(--medium-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .menu-item:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+        }
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .item-details h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--uber-black);
+            flex: 1;
+        }
+        
+        .item-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-left: 15px;
+        }
+        
+        .item-category {
+            font-size: 14px;
+            color: #666;
+            background-color: var(--light-gray);
+            padding: 4px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .add-to-cart {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #00b359;
+        }
+        
+        /* Order Summary Panel */
+        .order-panel {
+            flex: 0 0 380px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            height: fit-content;
+        }
+        
+        .order-panel h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--uber-black);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .order-panel h2 i {
+            color: var(--primary-green);
+        }
+        
+        .order-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            padding-bottom: 20px;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-name {
+            font-weight: 500;
+            flex: 1;
+        }
+        
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 15px;
+        }
+        
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .quantity {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .item-total {
+            font-weight: 600;
+            color: var(--primary-green);
+            min-width: 80px;
+            text-align: right;
+        }
+        
+        .remove-item {
+            color: #ff3333;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        
+        .order-summary {
+            margin-bottom: 25px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .summary-row.total {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--uber-black);
+            padding-top: 15px;
+            border-top: 2px solid var(--medium-gray);
+            margin-top: 10px;
+        }
+        
+        .delivery-charge {
+            color: #ff6600;
+        }
+        
+        .location-section {
+            margin-bottom: 25px;
+        }
+        
+        .location-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .location-input input {
+            flex-grow: 1;
+            padding: 14px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .location-input button {
+            background-color: var(--primary-black);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .map-link-container {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .map-link-container i {
+            color: #4285F4;
+            font-size: 20px;
+        }
+        
+        .map-link-container span {
+            flex: 1;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .place-order-btn {
+            width: 100%;
+            background-color: var(--primary-black);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .place-order-btn:hover {
+            background-color: #333;
+        }
+        
+        .place-order-btn i {
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--uber-black);
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-wrap: wrap;
+            }
+            
+            .categories-sidebar {
+                flex: 0 0 100%;
+                order: 1;
+            }
+            
+            .menu-section {
+                flex: 1;
+                order: 3;
+            }
+            
+            .order-panel {
+                flex: 0 0 100%;
+                order: 2;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo-area {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tagline {
+                border-left: none;
+                border-top: 2px solid var(--primary-green);
+                padding-left: 0;
+                padding-top: 10px;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .item-price {
+                margin-left: 0;
+                align-self: flex-start;
+            }
+        }
+        
+        /* Animation for cart update */
+        @keyframes cartBounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        .cart-bounce {
+            animation: cartBounce 0.5s ease;
+        }
+        
+        /* Empty cart message */
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+        
+        .empty-cart i {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <h1 class="hotel-name">Hotel <span>Harsha</span></h1>
+                <div class="tagline">namma kollegala</div>
+            </div>
+            <div class="header-right">
+                <div class="delivery-info">
+                    <i class="fas fa-bolt"></i>
+                    <span>Delivery in 30-40 mins</span>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="cart-count" id="cartCount">0</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Categories Sidebar -->
+        <div class="categories-sidebar">
+            <h2><i class="fas fa-list"></i> Food Categories</h2>
+            <div class="category-list">
+                <div class="category-item active" data-category="starters">
+                    <div class="category-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>Starters</h3>
+                        <p>Chinese & Manchurian</p>
+                    </div>
+                </div>
+                <div class="category-item" data-category="north-indian">
+                    <div class="category-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>North Indian</h3>
+                        <p>Roti & Curries</p>
+                    </div>
+                </div>
+                <div class="category-item" data-category="gravies">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>Veg Gravies</h3>
+                        <p>Rich & Creamy Curries</p>
+                    </div>
+                </div>
+                <div class="category-item" data-category="rice">
+                    <div class="category-icon">
+                        <i class="fas fa-utensil-spoon"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>Rice Recipes</h3>
+                        <p>Biryanis & Fried Rice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Items Section -->
+        <div class="menu-section">
+            <div class="section-header">
+                <h2 id="categoryTitle">Starters - Chinese & Manchurian</h2>
+                <div class="items-count" id="itemsCount">15 items</div>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Order Summary Panel -->
+        <div class="order-panel">
+            <h2><i class="fas fa-receipt"></i> Your Order</h2>
+            
+            <div class="order-items" id="orderItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your cart is empty</p>
+                    <p>Add items from the menu</p>
+                </div>
+            </div>
+            
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row delivery-charge">
+                    <span>Delivery Charge</span>
+                    <span id="deliveryCharge">₹20.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="totalAmount">₹20.00</span>
+                </div>
+            </div>
+            
+            <div class="location-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Delivery Location</h3>
+                <div class="location-input">
+                    <input type="text" id="deliveryAddress" placeholder="Enter your delivery address">
+                    <button id="locateMe"><i class="fas fa-location-arrow"></i></button>
+                </div>
+                <div class="map-link-container" id="mapLinkContainer">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="mapLinkText">Google Maps link will appear here after entering address</span>
+                </div>
+            </div>
+            
+            <button class="place-order-btn" id="placeOrderBtn">
+                <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hotel Harsha</h3>
+                    <p>Experience authentic North Indian and Chinese cuisine delivered to your doorstep. Our mission is to bring the taste of Kollegala to your home.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8762167849</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>orders@hotelharsha.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock"></i>
+                            <span>Open: 11:00 AM - 11:00 PM</span>
+                        </div>
+                        <a href="https://wa.me/918762167849" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Delivery Info</h3>
+                    <p>We deliver within 5km radius. Minimum order: ₹150. Delivery charge: ₹20. Delivery time: 30-40 minutes.</p>
+                    <p>Payment: Cash on delivery or UPI</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Hotel Harsha. All rights reserved. | namma kollegala
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu data - organized by categories
+        const menuData = {
+            "starters": [
+                { name: "Gobi Manchurian", price: 80.00, category: "Gobi" },
+                { name: "Gobi Chilly", price: 120.00, category: "Gobi" },
+                { name: "Gobi 65", price: 140.00, category: "Gobi" },
+                { name: "Gobi Pepper Dry", price: 120.00, category: "Gobi" },
+                { name: "Mushroom Manchurian", price: 120.00, category: "Mushroom" },
+                { name: "Mushroom Chilly", price: 140.00, category: "Mushroom" },
+                { name: "Mushroom 65", price: 160.00, category: "Mushroom" },
+                { name: "Mushroom Pepper Dry", price: 140.00, category: "Mushroom" },
+                { name: "Paneer Manchurian", price: 120.00, category: "Paneer" },
+                { name: "Paneer Chilly", price: 140.00, category: "Paneer" },
+                { name: "Paneer 65", price: 160.00, category: "Paneer" },
+                { name: "Paneer Pepperdry", price: 140.00, category: "Paneer" },
+                { name: "Noodles Simply", price: 100.00, category: "Noodles" },
+                { name: "Schezwan Noodles", price: 150.00, category: "Noodles" },
+                { name: "Masala Papad", price: 60.00, category: "Quick Bites" },
+                { name: "Finger Chips", price: 100.00, category: "Quick Bites" }
+            ],
+            "north-indian": [
+                { name: "Roti", price: 25.00, category: "Breads" },
+                { name: "Butter Roti", price: 30.00, category: "Breads" },
+                { name: "Kulcha", price: 30.00, category: "Breads" },
+                { name: "Butter Kulcha", price: 35.00, category: "Breads" },
+                { name: "Stuffed Kulcha", price: 50.00, category: "Breads" },
+                { name: "Naan", price: 30.00, category: "Breads" },
+                { name: "Butter Naan", price: 35.00, category: "Breads" },
+                { name: "Garlic Roti", price: 35.00, category: "Breads" },
+                { name: "Chilly Garlic Roti", price: 40.00, category: "Breads" },
+                { name: "Methi Roti", price: 30.00, category: "Breads" },
+                { name: "Cheese Roti", price: 45.00, category: "Breads" },
+                { name: "Roti Curry", price: 80.00, category: "Curry" }
+            ],
+            "gravies": [
+                { name: "Paneer Butter Masala", price: 150.00, category: "Paneer Gravies" },
+                { name: "Paneer Kadai", price: 150.00, category: "Paneer Gravies" },
+                { name: "Paneer Kurma", price: 150.00, category: "Paneer Gravies" },
+                { name: "Paneer Shahi Kurma", price: 180.00, category: "Paneer Gravies" },
+                { name: "Paneer Keema", price: 180.00, category: "Paneer Gravies" },
+                { name: "Paneer Burji", price: 150.00, category: "Paneer Gravies" },
+                { name: "Paneer Tikka Masala", price: 180.00, category: "Paneer Gravies" },
+                { name: "Paneer Masala", price: 180.00, category: "Paneer Gravies" },
+                { name: "Palak Paneer", price: 150.00, category: "Paneer Gravies" },
+                { name: "Palak Mushroom", price: 150.00, category: "Mushroom Gravies" },
+                { name: "Mushroom Masala", price: 150.00, category: "Mushroom Gravies" },
+                { name: "Kadai Mushroom", price: 180.00, category: "Mushroom Gravies" },
+                { name: "Mushroom Pepper Dry", price: 140.00, category: "Mushroom Gravies" },
+                { name: "Dal Tadka", price: 150.00, category: "Dal Gravies" },
+                { name: "Dal Palak", price: 150.00, category: "Dal Gravies" },
+                { name: "Aloo Matar", price: 120.00, category: "Vegetable Gravies" },
+                { name: "Mix Veg Curry", price: 150.00, category: "Vegetable Gravies" },
+                { name: "Stuffed Capsicum Masala", price: 180.00, category: "Vegetable Gravies" },
+                { name: "Malai Kofta", price: 180.00, category: "Kofta Gravies" },
+                { name: "Veg Kofta", price: 180.00, category: "Kofta Gravies" },
+                { name: "Veg Kadhi", price: 150.00, category: "Vegetable Gravies" },
+                { name: "Veg Kurma", price: 140.00, category: "Vegetable Gravies" },
+                { name: "Veg Handi", price: 150.00, category: "Vegetable Gravies" },
+                { name: "Gobi Masala", price: 140.00, category: "Vegetable Gravies" },
+                { name: "Aloo Gobi Masala", price: 150.00, category: "Vegetable Gravies" },
+                { name: "Green Peas Masala", price: 150.00, category: "Vegetable Gravies" },
+                { name: "Dum Aloo Kashmiri", price: 180.00, category: "Vegetable Gravies" },
+                { name: "Baby Corn Green Masala", price: 180.00, category: "Vegetable Gravies" },
+                { name: "Kaju Masala", price: 180.00, category: "Vegetable Gravies" }
+            ],
+            "rice": [
+                { name: "Veg Pulao", price: 90.00, category: "Rice Dishes" },
+                { name: "Veg Biryani", price: 100.00, category: "Rice Dishes" },
+                { name: "Veg Hyderabadi", price: 140.00, category: "Rice Dishes" },
+                { name: "Mughlai Biryani", price: 140.00, category: "Rice Dishes" },
+                { name: "Handi Biryani", price: 140.00, category: "Rice Dishes" },
+                { name: "Paneer Biryani", price: 140.00, category: "Rice Dishes" },
+                { name: "Mushroom Biryani", price: 140.00, category: "Rice Dishes" },
+                { name: "Palak Rice", price: 150.00, category: "Special Rice" },
+                { name: "Palak Khichdi", price: 150.00, category: "Special Rice" },
+                { name: "Green Peas Pulao", price: 150.00, category: "Special Rice" },
+                { name: "Dal Khichdi", price: 140.00, category: "Special Rice" },
+                { name: "Veg Fried Rice", price: 90.00, category: "Fried Rice" },
+                { name: "Jeera Rice", price: 100.00, category: "Fried Rice" },
+                { name: "Ghee Rice", price: 120.00, category: "Fried Rice" },
+                { name: "Schezwan Fried Rice", price: 150.00, category: "Fried Rice" },
+                { name: "Paneer Fried Rice", price: 140.00, category: "Fried Rice" },
+                { name: "Mushroom Fried Rice", price: 140.00, category: "Fried Rice" },
+                { name: "Gobi Mixed Fried Rice", price: 180.00, category: "Fried Rice" }
+            ]
+        };
+
+        // Category titles mapping
+        const categoryTitles = {
+            "starters": "Starters - Chinese & Manchurian",
+            "north-indian": "North Indian - Roti & Curries",
+            "gravies": "The Gravy's - Veg Gravy Menu",
+            "rice": "The Rice Recipes"
+        };
+
+        // Cart state
+        let cart = [];
+        const deliveryCharge = 20.00;
+        let googleMapsLink = "";
+
+        // DOM elements
+        const menuItemsContainer = document.getElementById('menuItems');
+        const orderItemsContainer = document.getElementById('orderItems');
+        const cartCount = document.getElementById('cartCount');
+        const subtotalElement = document.getElementById('subtotal');
+        const totalAmountElement = document.getElementById('totalAmount');
+        const itemsCountElement = document.getElementById('itemsCount');
+        const categoryTitleElement = document.getElementById('categoryTitle');
+        const categoryItems = document.querySelectorAll('.category-item');
+        const deliveryAddressInput = document.getElementById('deliveryAddress');
+        const locateMeButton = document.getElementById('locateMe');
+        const placeOrderButton = document.getElementById('placeOrderBtn');
+        const cartIcon = document.getElementById('cartIcon');
+        const mapLinkContainer = document.getElementById('mapLinkContainer');
+        const mapLinkText = document.getElementById('mapLinkText');
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the initial category (starters)
+            loadCategory('starters');
+            
+            // Add event listeners to category items
+            categoryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active category
+                    categoryItems.forEach(cat => cat.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Load the category items
+                    loadCategory(category);
+                });
+            });
+            
+            // Add event listener for locate me button
+            locateMeButton.addEventListener('click', function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            const lat = position.coords.latitude;
+                            const lng = position.coords.longitude;
+                            
+                            // Create Google Maps link
+                            googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+                            
+                            // Use reverse geocoding to get address from coordinates
+                            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const address = data.display_name;
+                                    deliveryAddressInput.value = address.substring(0, 100); // Limit length
+                                    
+                                    // Update map link display
+                                    mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+                                    mapLinkContainer.style.cursor = "pointer";
+                                    mapLinkContainer.onclick = function() {
+                                        window.open(googleMapsLink, '_blank');
+                                    };
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching address:', error);
+                                    deliveryAddressInput.value = `Near ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+                                    mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+                                    mapLinkContainer.style.cursor = "pointer";
+                                    mapLinkContainer.onclick = function() {
+                                        window.open(googleMapsLink, '_blank');
+                                    };
+                                });
+                        },
+                        function(error) {
+                            console.error('Error getting location:', error);
+                            alert('Unable to retrieve your location. Please enter your address manually.');
+                        }
+                    );
+                } else {
+                    alert('Geolocation is not supported by your browser.');
+                }
+            });
+            
+            // Add event listener for address input to generate Google Maps link
+            deliveryAddressInput.addEventListener('input', function() {
+                const address = this.value.trim();
+                if (address.length > 5) {
+                    // Create Google Maps link for the address
+                    googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+                    mapLinkText.textContent = `Google Maps Link for: ${address.substring(0, 50)}${address.length > 50 ? '...' : ''}`;
+                    mapLinkContainer.style.cursor = "pointer";
+                    mapLinkContainer.onclick = function() {
+                        window.open(googleMapsLink, '_blank');
+                    };
+                } else {
+                    mapLinkText.textContent = "Google Maps link will appear here after entering address";
+                    mapLinkContainer.style.cursor = "default";
+                    mapLinkContainer.onclick = null;
+                }
+            });
+            
+            // Add event listener for place order button
+            placeOrderButton.addEventListener('click', placeOrder);
+            
+            // Initialize cart
+            updateCart();
+        });
+
+        // Load category items
+        function loadCategory(category) {
+            const items = menuData[category];
+            categoryTitleElement.textContent = categoryTitles[category];
+            itemsCountElement.textContent = `${items.length} items`;
+            
+            // Clear the menu items container
+            menuItemsContainer.innerHTML = '';
+            
+            // Add items to the container
+            items.forEach(item => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.className = 'menu-item';
+                menuItemElement.innerHTML = `
+                    <div class="item-details">
+                        <div class="item-header">
+                            <h3>${item.name}</h3>
+                            <div class="item-price">₹${item.price.toFixed(2)}</div>
+                        </div>
+                        <div class="item-category">${item.category}</div>
+                        <button class="add-to-cart" data-name="${item.name}" data-price="${item.price}">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                
+                menuItemsContainer.appendChild(menuItemElement);
+            });
+            
+            // Add event listeners to add-to-cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    addToCart(name, price);
+                });
+            });
+        }
+
+        // Add item to cart
+        function addToCart(name, price) {
+            // Check if item already exists in cart
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+            
+            if (existingItemIndex !== -1) {
+                // Item exists, increase quantity
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                // Item doesn't exist, add new item
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            // Update cart UI
+            updateCart();
+            
+            // Animate cart icon
+            cartIcon.classList.add('cart-bounce');
+            setTimeout(() => {
+                cartIcon.classList.remove('cart-bounce');
+            }, 500);
+        }
+
+        // Update cart UI
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update order items list
+            if (cart.length === 0) {
+                orderItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <p>Your cart is empty</p>
+                        <p>Add items from the menu</p>
+                    </div>
+                `;
+            } else {
+                orderItemsContainer.innerHTML = '';
+                
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    const orderItemElement = document.createElement('div');
+                    orderItemElement.className = 'order-item';
+                    orderItemElement.innerHTML = `
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn decrease" data-index="${index}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn increase" data-index="${index}">+</button>
+                        </div>
+                        <div class="item-total">₹${itemTotal.toFixed(2)}</div>
+                        <button class="remove-item" data-index="${index}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    
+                    orderItemsContainer.appendChild(orderItemElement);
+                });
+                
+                // Add event listeners for quantity buttons and remove buttons
+                document.querySelectorAll('.decrease').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        decreaseQuantity(index);
+                    });
+                });
+                
+                document.querySelectorAll('.increase').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        increaseQuantity(index);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        removeFromCart(index);
+                    });
+                });
+            }
+            
+            // Update totals
+            updateTotals();
+        }
+
+        // Update cart totals
+        function updateTotals() {
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const total = subtotal + deliveryCharge;
+            
+            subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
+            totalAmountElement.textContent = `₹${total.toFixed(2)}`;
+        }
+
+        // Increase item quantity
+        function increaseQuantity(index) {
+            cart[index].quantity += 1;
+            updateCart();
+        }
+
+        // Decrease item quantity
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+            } else {
+                // Remove item if quantity becomes 0
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        // Place order via WhatsApp
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before placing an order.');
+                return;
+            }
+            
+            const address = deliveryAddressInput.value.trim();
+            if (!address) {
+                alert('Please enter your delivery address.');
+                deliveryAddressInput.focus();
+                return;
+            }
+            
+            if (!googleMapsLink) {
+                alert('Please wait for Google Maps link to generate or enter a valid address.');
+                return;
+            }
+            
+            // Prepare order details
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const total = subtotal + deliveryCharge;
+            
+            let orderText = `*Hotel Harsha - Food Order*\n\n`;
+            orderText += `*Customer Details:*\n`;
+            orderText += `Delivery Address: ${address}\n`;
+            orderText += `Google Maps Location: ${googleMapsLink}\n\n`;
+            orderText += `*Order Items:*\n`;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
+            });
+            
+            orderText += `\n*Order Summary:*\n`;
+            orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
+            orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
+            orderText += `*Total: ₹${total.toFixed(2)}*\n\n`;
+            orderText += `Please confirm this order. Thank you!`;
+            
+            // Encode the message for WhatsApp URL
+            const encodedMessage = encodeURIComponent(orderText);
+            const phoneNumber = '8762167849';
+            const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Optional: Clear cart after order
+            // cart = [];
+            // updateCart();
+            // deliveryAddressInput.value = '';
+            // mapLinkText.textContent = "Google Maps link will appear here after entering address";
+            // mapLinkContainer.style.cursor = "default";
+            // mapLinkContainer.onclick = null;
+            // googleMapsLink = "";
+        }
+    </script>
+</body>
+</html>
