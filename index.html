@@ -976,6 +976,15 @@
                         <p>Idli, Dosa & Traditional Specials</p>
                     </div>
                 </div>
+                
+<div class="category-item" data-category="meals">
+    <img src="https://images.unsplash.com/photo-1666251214795-a1296307d29c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meals" class="category-image">
+    <div class="category-overlay">
+        <h3>Meals</h3>
+        <p>South Indian Meals (12 onwards)</p>
+    </div>
+</div>
+                
                 <div class="category-item" data-category="starters">
                     <img src="https://images.unsplash.com/photo-1643478224346-47bd9ed48e36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Starters" class="category-image">
                     <div class="category-overlay">
@@ -1077,7 +1086,7 @@
                     <div class="contact-info">
                         <div>
                             <i class="fas fa-phone"></i>
-                            <span>+91 8762167849</span>
+                            <span>+91 97313 43143</span>
                         </div>
                         <div>
                             <i class="fas fa-envelope"></i>
@@ -1091,7 +1100,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Kollegala, Karnataka</span>
                         </div>
-                        <a href="https://wa.me/918762167849" class="whatsapp-btn" target="_blank">
+                        <a href="https://wa.me/+91 97313 43143" class="whatsapp-btn" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order on WhatsApp
                         </a>
                     </div>
@@ -1158,6 +1167,13 @@
                 { name: "Rawe Dosa", price: 50.00, category: "Dosa" },
                 { name: "Eerulli Dosa", price: 70.00, category: "Dosa" }
             ],
+            
+               "meals": [
+               { name: "ಊಟ (ಸೌತ್ ಇಂಡಿಯನ್)", price: 90.00, category: "South Indian Meals" },
+               { name: "ಮಿನಿಮಿಲ್ಸ", price: 50.00, category: "South Indian Meals" }
+            ],
+            
+            
             "starters": [
                 { name: "Gobi Manchurian", price: 80.00, category: "Gobi", mostRated: true },
                 { name: "Gobi Chilly", price: 120.00, category: "Gobi" },
@@ -1247,10 +1263,12 @@
         const categoryTitles = {
             "most-rated": "Most Rated - Customer Favorites",
             "south-indian": "South Indian - Idli, Dosa & Traditional Specials",
+            "meals": "South Indian Meals (12 onwards)",
             "starters": "Starters - Chinese & Manchurian",
             "north-indian": "North Indian - Roti & Curries",
             "gravies": "The Gravy's - Veg Gravy Menu",
             "rice": "The Rice Recipes"
+            
         };
 
         // Cart state
@@ -1571,7 +1589,7 @@
             
             // Encode the message for WhatsApp URL
             const encodedMessage = encodeURIComponent(orderText);
-            const phoneNumber = '8762167849';
+            const phoneNumber = '97313 43143';
             const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
             
             // Open WhatsApp in a new tab
