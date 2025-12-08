@@ -59,20 +59,40 @@
         }
         
         .logo-area {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .hotel-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
-            font-weight: 900;
-            color: var(--primary-green);
-            letter-spacing: 1px;
-            line-height: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* ADD LOGO STYLING HERE - right after .logo-area */
+  .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .logo {
+      height: 80px;
+      width: auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      border: 3px solid var(--primary-green);
+  }
+  
+  .hotel-info {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .hotel-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--primary-green);
+      letter-spacing: 1px;
+      line-height: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
         .hotel-name span {
             color: var(--dark-gray);
             position: relative;
@@ -269,6 +289,48 @@
             background: linear-gradient(to top, rgba(0, 184, 148, 0.9), rgba(0, 184, 148, 0.7));
         }
         
+        /* Most Rated Category Item */
+        .category-item.most-rated-category {
+            border: 2px solid #ff6b6b;
+        }
+
+        .category-item.most-rated-category .category-overlay {
+            background: linear-gradient(to top, rgba(255, 107, 107, 0.9), rgba(255, 107, 107, 0.7));
+        }
+
+        .category-item.most-rated-category.active .category-overlay {
+            background: linear-gradient(to top, rgba(255, 107, 107, 0.9), rgba(255, 107, 107, 0.7));
+        }
+
+        /* Most Rated Badge */
+        .most-rated-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(to right, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .most-rated-badge i {
+            font-size: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
         /* Menu Items Section */
         .menu-section {
             flex: 1;
@@ -316,6 +378,7 @@
             background: var(--white);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
         
         .menu-item:hover {
@@ -861,28 +924,37 @@
         .menu-item, .category-item, .order-panel, .categories-sidebar, .menu-section {
             animation: fadeIn 0.5s ease forwards;
         }
+        
+        
+        
+        
+        
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header>
-        <div class="container header-container">
-            <div class="logo-area">
+<!-- Header Section -->
+<header>
+    <div class="container header-container">
+        <div class="logo-area">
+            <img src="https://images.unsplash.com/photo-1765199086054-0c3875ca298e?q=80&w=1130&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hotel Harsha Logo" class="logo">
+            <div class="hotel-info">
                 <h1 class="hotel-name">HOTEL <span>HARSHA</span></h1>
                 <div class="slogan">ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ</div>
             </div>
-            <div class="header-right">
-                <div class="delivery-info">
-                    <i class="fas fa-bolt"></i>
-                    <span>Delivery in 30-40 mins</span>
-                </div>
-                <div class="cart-icon" id="cartIcon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="cart-count" id="cartCount">0</div>
-                </div>
+        </div>
+        <div class="header-right">
+            <div class="delivery-info">
+                <i class="fas fa-bolt"></i>
+                <span>Delivery in 15-30 mins</span>
+            </div>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="cart-count" id="cartCount">0</div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Main Content -->
     <div class="container main-content">
@@ -890,7 +962,21 @@
         <div class="categories-sidebar">
             <h2><i class="fas fa-utensils"></i> Food Categories</h2>
             <div class="category-list">
-                <div class="category-item active" data-category="starters">
+                <div class="category-item most-rated-category active" data-category="most-rated">
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Most Rated" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Most Rated</h3>
+                        <p>Customer Favorites</p>
+                    </div>
+                </div>
+                <div class="category-item" data-category="south-indian">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="South Indian" class="category-image">
+                    <div class="category-overlay">
+                        <h3>South Indian</h3>
+                        <p>Idli, Dosa & Traditional Specials</p>
+                    </div>
+                </div>
+                <div class="category-item" data-category="starters">
                     <img src="https://images.unsplash.com/photo-1643478224346-47bd9ed48e36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Starters" class="category-image">
                     <div class="category-overlay">
                         <h3>Starters</h3>
@@ -924,8 +1010,8 @@
         <!-- Menu Items Section -->
         <div class="menu-section">
             <div class="section-header">
-                <h2 id="categoryTitle">Starters - Chinese & Manchurian</h2>
-                <div class="items-count" id="itemsCount">15 items</div>
+                <h2 id="categoryTitle">Most Rated - Customer Favorites</h2>
+                <div class="items-count" id="itemsCount">10 items</div>
             </div>
             <div class="menu-items" id="menuItems">
                 <!-- Menu items will be dynamically loaded here -->
@@ -983,7 +1069,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Hotel Harsha</h3>
-                    <p>Experience authentic North Indian and Chinese cuisine delivered to your doorstep. Our mission is to bring the taste of Kollegala to your home with premium quality and taste.</p>
+                    <p>Experience authentic South Indian, North Indian and Chinese cuisine delivered to your doorstep. Our mission is to bring the taste of Kollegala to your home with premium quality and taste.</p>
                 </div>
                 
                 <div class="footer-section">
@@ -999,7 +1085,7 @@
                         </div>
                         <div>
                             <i class="fas fa-clock"></i>
-                            <span>Open: 11:00 AM - 11:00 PM</span>
+                            <span>Open: 7:00 AM - 8:00 PM</span>
                         </div>
                         <div>
                             <i class="fas fa-map-marker-alt"></i>
@@ -1013,7 +1099,7 @@
                 
                 <div class="footer-section">
                     <h3>Delivery Info</h3>
-                    <p>We deliver within 5km radius. . Delivery charge: ₹20. Delivery time: 30-40 minutes.</p>
+                    <p>We deliver within 5km radius. Delivery charge: ₹20. Delivery time: 15-30 minutes.</p>
                     <p>Payment: Cash on delivery or UPI</p>
                     <p>Free delivery on orders above ₹500</p>
                 </div>
@@ -1028,8 +1114,52 @@
     <script>
         // Menu data - organized by categories
         const menuData = {
+            "most-rated": [
+                { name: "Idli (2 pcs)", price: 30.00, category: "South Indian", mostRated: true },
+                { name: "Vade (1 pc)", price: 20.00, category: "South Indian", mostRated: true },
+                { name: "Benne Masala Dosa", price: 70.00, category: "South Indian", mostRated: true },
+                { name: "Set Dosa", price: 60.00, category: "South Indian", mostRated: true },
+                { name: "Bisi bele bath", price: 60.00, category: "South Indian", mostRated: true },
+                { name: "Veg Biryani", price: 100.00, category: "Rice", mostRated: true },
+                { name: "Roti Curry", price: 80.00, category: "North Indian", mostRated: true },
+                { name: "Noodles Simply", price: 100.00, category: "Starters", mostRated: true },
+                { name: "Gobi Manchurian", price: 80.00, category: "Starters", mostRated: true },
+                { name: "Veg Fried Rice", price: 100.00, category: "Rice", mostRated: true }
+            ],
+            "south-indian": [
+                { name: "Idli (2 pcs)", price: 30.00, category: "Breakfast", mostRated: true },
+                { name: "Vade (1 pc)", price: 20.00, category: "Breakfast", mostRated: true },
+                { name: "Kesari Bhat", price: 40.00, category: "Rice" },
+                { name: "Khara Bhat", price: 40.00, category: "Rice" },
+                { name: "Bisi bele bath", price: 60.00, category: "Rice", mostRated: true },
+                { name: "Rice Bhat", price: 50.00, category: "Rice" },
+                { name: "Shavige palav", price: 60.00, category: "Rice" },
+                { name: "Kashmir palav", price: 60.00, category: "Rice" },
+                { name: "Ragi shavige", price: 60.00, category: "Noodles" },
+                { name: "Akki shavige", price: 50.00, category: "Noodles" },
+                { name: "Pongal", price: 60.00, category: "Breakfast" },
+                { name: "Pulivogre", price: 50.00, category: "Rice" },
+                { name: "Chitranna", price: 40.00, category: "Rice" },
+                { name: "Puuri", price: 50.00, category: "Breads" },
+                { name: "Rawe idli", price: 60.00, category: "Breakfast" },
+                { name: "Mosaranna", price: 40.00, category: "Rice" },
+                { name: "Channa Bhatura", price: 50.00, category: "Snacks" },
+                { name: "Chapati", price: 50.00, category: "Breads" },
+                { name: "Pharota", price: 50.00, category: "Breads" },
+                { name: "Masala Dosa", price: 60.00, category: "Dosa" },
+                { name: "Benne Masala Dosa", price: 70.00, category: "Dosa", mostRated: true },
+                { name: "Plain Dosa", price: 50.00, category: "Dosa" },
+                { name: "Set Masala Dosa", price: 70.00, category: "Dosa" },
+                { name: "Benne Set Masala Dosa", price: 80.00, category: "Dosa" },
+                { name: "Benne Saadha Dosa", price: 70.00, category: "Dosa" },
+                { name: "Set Dosa", price: 60.00, category: "Dosa", mostRated: true },
+                { name: "Benne Roast", price: 55.00, category: "Dosa" },
+                { name: "Ragi Dosa", price: 40.00, category: "Dosa" },
+                { name: "Rawe Dosa", price: 50.00, category: "Dosa" },
+                { name: "Eerulli Dosa", price: 70.00, category: "Dosa" }
+            ],
             "starters": [
-                { name: "Gobi Manchurian", price: 80.00, category: "Gobi" },
+                { name: "Gobi Manchurian", price: 80.00, category: "Gobi", mostRated: true },
                 { name: "Gobi Chilly", price: 120.00, category: "Gobi" },
                 { name: "Gobi 65", price: 140.00, category: "Gobi" },
                 { name: "Gobi Pepper Dry", price: 120.00, category: "Gobi" },
@@ -1041,7 +1171,7 @@
                 { name: "Paneer Chilly", price: 140.00, category: "Paneer" },
                 { name: "Paneer 65", price: 160.00, category: "Paneer" },
                 { name: "Paneer Pepperdry", price: 140.00, category: "Paneer" },
-                { name: "Noodles Simply", price: 100.00, category: "Noodles" },
+                { name: "Noodles Simply", price: 100.00, category: "Noodles", mostRated: true },
                 { name: "Schezwan Noodles", price: 150.00, category: "Noodles" },
                 { name: "Masala Papad", price: 60.00, category: "Quick Bites" },
                 { name: "Finger Chips", price: 100.00, category: "Quick Bites" }
@@ -1058,7 +1188,7 @@
                 { name: "Chilly Garlic Roti", price: 40.00, category: "Breads" },
                 { name: "Methi Roti", price: 30.00, category: "Breads" },
                 { name: "Cheese Roti", price: 45.00, category: "Breads" },
-                { name: "Roti Curry", price: 80.00, category: "Curry" }
+                { name: "Roti Curry", price: 80.00, category: "Curry", mostRated: true }
             ],
             "gravies": [
                 { name: "Paneer Butter Masala", price: 150.00, category: "Paneer Gravies" },
@@ -1093,7 +1223,7 @@
             ],
             "rice": [
                 { name: "Veg Pulao", price: 90.00, category: "Rice Dishes" },
-                { name: "Veg Biryani", price: 100.00, category: "Rice Dishes" },
+                { name: "Veg Biryani", price: 100.00, category: "Rice Dishes", mostRated: true },
                 { name: "Veg Hyderabadi", price: 140.00, category: "Rice Dishes" },
                 { name: "Mughlai Biryani", price: 140.00, category: "Rice Dishes" },
                 { name: "Handi Biryani", price: 140.00, category: "Rice Dishes" },
@@ -1103,7 +1233,7 @@
                 { name: "Palak Khichdi", price: 150.00, category: "Special Rice" },
                 { name: "Green Peas Pulao", price: 150.00, category: "Special Rice" },
                 { name: "Dal Khichdi", price: 140.00, category: "Special Rice" },
-                { name: "Veg Fried Rice", price: 90.00, category: "Fried Rice" },
+                { name: "Veg Fried Rice", price: 100.00, category: "Fried Rice", mostRated: true },
                 { name: "Jeera Rice", price: 100.00, category: "Fried Rice" },
                 { name: "Ghee Rice", price: 120.00, category: "Fried Rice" },
                 { name: "Schezwan Fried Rice", price: 150.00, category: "Fried Rice" },
@@ -1115,6 +1245,8 @@
 
         // Category titles mapping
         const categoryTitles = {
+            "most-rated": "Most Rated - Customer Favorites",
+            "south-indian": "South Indian - Idli, Dosa & Traditional Specials",
             "starters": "Starters - Chinese & Manchurian",
             "north-indian": "North Indian - Roti & Curries",
             "gravies": "The Gravy's - Veg Gravy Menu",
@@ -1144,8 +1276,8 @@
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
-            // Load the initial category (starters)
-            loadCategory('starters');
+            // Load the initial category (most-rated)
+            loadCategory('most-rated');
             
             // Add event listeners to category items
             categoryItems.forEach(item => {
@@ -1251,6 +1383,7 @@
                             <div class="item-price">₹${item.price.toFixed(2)}</div>
                         </div>
                         <div class="item-category">${item.category}</div>
+                        ${item.mostRated ? '<div class="most-rated-badge"><i class="fas fa-star"></i> Most Rated</div>' : ''}
                         <button class="add-to-cart" data-name="${item.name}" data-price="${item.price}">
                             <i class="fas fa-plus"></i> Add to Cart
                         </button>
@@ -1428,13 +1561,14 @@
                 orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
             });
             
-  orderText += `\n*Order Summary:*\n`;
-orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
-orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
-orderText += `*Total: ₹${total.toFixed(2)}*\n`;
-orderText += `Order Ref: 1HH\n\n`; // Just add this line
-orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
-orderText += `Please confirm this order. Thank you!`;
+            orderText += `\n*Order Summary:*\n`;
+            orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
+            orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
+            orderText += `*Total: ₹${total.toFixed(2)}*\n`;
+            orderText += `Order Ref: 1HH\n\n`;
+            orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
+            orderText += `Please confirm this order. Thank you!`;
+            
             // Encode the message for WhatsApp URL
             const encodedMessage = encodeURIComponent(orderText);
             const phoneNumber = '8762167849';
@@ -1442,15 +1576,6 @@ orderText += `Please confirm this order. Thank you!`;
             
             // Open WhatsApp in a new tab
             window.open(whatsappURL, '_blank');
-            
-            // Optional: Clear cart after order
-            // cart = [];
-            // updateCart();
-            // deliveryAddressInput.value = '';
-            // mapLinkText.textContent = "Google Maps link will appear here after entering address";
-            // mapLinkContainer.style.cursor = "default";
-            // mapLinkContainer.onclick = null;
-            // googleMapsLink = "";
         }
     </script>
 </body>
