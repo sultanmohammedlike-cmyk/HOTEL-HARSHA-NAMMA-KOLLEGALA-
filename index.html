@@ -59,40 +59,35 @@
         }
         
         .logo-area {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  /* ADD LOGO STYLING HERE - right after .logo-area */
-  .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-  }
-  
-  .logo {
-      height: 80px;
-      width: auto;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      object-fit: cover;
-      border: 3px solid var(--primary-green);
-  }
-  
-  .hotel-info {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  .hotel-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 42px;
-      font-weight: 900;
-      color: var(--primary-green);
-      letter-spacing: 1px;
-      line-height: 1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            height: 80px;
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            border: 3px solid var(--primary-green);
+        }
+        
+        .hotel-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hotel-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--primary-green);
+            letter-spacing: 1px;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
         .hotel-name span {
             color: var(--dark-gray);
             position: relative;
@@ -189,24 +184,23 @@
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
         
-        /* Main Content */
+        /* Main Content - UPDATED LAYOUT */
         .main-content {
             display: flex;
+            flex-direction: column;
             margin-top: 30px;
             gap: 30px;
             position: relative;
         }
         
-        /* Categories with images */
+        /* Categories with images - Now full width */
         .categories-sidebar {
-            flex: 0 0 320px;
+            width: 100%;
             background-color: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 25px;
             height: fit-content;
-            position: sticky;
-            top: 110px;
         }
         
         .categories-sidebar h2 {
@@ -230,12 +224,15 @@
         
         .category-list {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 20px;
         }
         
         .category-item {
             height: 140px;
+            flex: 1;
+            min-width: 280px;
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -333,7 +330,7 @@
         
         /* Menu Items Section */
         .menu-section {
-            flex: 1;
+            width: 100%;
             background-color: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -451,16 +448,15 @@
             transform: translateY(-3px);
         }
         
-        /* Order Summary Panel */
+        /* Order Summary Panel - NOW AT THE BOTTOM */
         .order-panel {
-            flex: 0 0 400px;
+            width: 100%;
             background-color: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 30px;
             height: fit-content;
-            position: sticky;
-            top: 110px;
+            order: 3; /* This ensures it appears last */
         }
         
         .order-panel h2 {
@@ -800,12 +796,6 @@
                 flex-wrap: wrap;
             }
             
-            .categories-sidebar {
-                flex: 0 0 100%;
-                position: static;
-                order: 1;
-            }
-            
             .category-list {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -816,16 +806,8 @@
                 min-width: 280px;
             }
             
-            .menu-section {
-                flex: 1;
-                order: 3;
-            }
-            
-            .order-panel {
-                flex: 0 0 100%;
-                position: static;
-                order: 2;
-                margin-bottom: 30px;
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
         }
         
@@ -846,6 +828,10 @@
             
             .menu-items {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .category-item {
+                min-width: 100%;
             }
         }
         
@@ -925,36 +911,35 @@
             animation: fadeIn 0.5s ease forwards;
         }
         
-        
-        
-        
-        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-<!-- Header Section -->
-<header>
-    <div class="container header-container">
-        <div class="logo-area">
-            <img src="https://images.unsplash.com/photo-1765199086054-0c3875ca298e?q=80&w=1130&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hotel Harsha Logo" class="logo">
-            <div class="hotel-info">
-                <h1 class="hotel-name">HOTEL <span>HARSHA</span></h1>
-                <div class="slogan">ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ</div>
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <img src="https://images.unsplash.com/photo-1765199086054-0c3875ca298e?q=80&w=1130&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hotel Harsha Logo" class="logo">
+                <div class="hotel-info">
+                    <h1 class="hotel-name">HOTEL <span>HARSHA</span></h1>
+                    <div class="slogan">ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="delivery-info">
+                    <i class="fas fa-bolt"></i>
+                    <span>Delivery in 15-30 mins</span>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="cart-count" id="cartCount">0</div>
+                </div>
             </div>
         </div>
-        <div class="header-right">
-            <div class="delivery-info">
-                <i class="fas fa-bolt"></i>
-                <span>Delivery in 15-30 mins</span>
-            </div>
-            <div class="cart-icon" id="cartIcon">
-                <i class="fas fa-shopping-cart"></i>
-                <div class="cart-count" id="cartCount">0</div>
-            </div>
-        </div>
-    </div>
-</header>
+    </header>
 
     <!-- Main Content -->
     <div class="container main-content">
@@ -973,17 +958,17 @@
                     <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="South Indian" class="category-image">
                     <div class="category-overlay">
                         <h3>South Indian</h3>
-                        <p>Idli, Dosa & Traditional Specials</p>
+                        <p>Idli, Dosa & Traditional Specials 7am onwards</p>
                     </div>
                 </div>
                 
-<div class="category-item" data-category="meals">
-    <img src="https://images.unsplash.com/photo-1742281257687-092746ad6021?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meals" class="category-image">
-    <div class="category-overlay">
-        <h3>Meals</h3>
-        <p>South Indian Meals (12 onwards)</p>
-    </div>
-</div>
+                <div class="category-item" data-category="meals">
+                    <img src="https://images.unsplash.com/photo-1742281257687-092746ad6021?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meals" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Meals</h3>
+                        <p>South Indian Meals (12 onwards)</p>
+                    </div>
+                </div>
                 
                 <div class="category-item" data-category="starters">
                     <img src="https://images.unsplash.com/photo-1643478224346-47bd9ed48e36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Starters" class="category-image">
@@ -1017,7 +1002,7 @@
         </div>
 
         <!-- Menu Items Section -->
-        <div class="menu-section">
+        <div class="menu-section" id="menuSection">
             <div class="section-header">
                 <h2 id="categoryTitle">Most Rated - Customer Favorites</h2>
                 <div class="items-count" id="itemsCount">10 items</div>
@@ -1027,8 +1012,8 @@
             </div>
         </div>
 
-        <!-- Order Summary Panel -->
-        <div class="order-panel">
+        <!-- Order Summary Panel - NOW AT THE BOTTOM -->
+        <div class="order-panel" id="orderPanel">
             <h2><i class="fas fa-receipt"></i> Your Order</h2>
             
             <div class="order-items" id="orderItems">
@@ -1262,7 +1247,7 @@
         // Category titles mapping
         const categoryTitles = {
             "most-rated": "Most Rated - Customer Favorites",
-            "south-indian": "South Indian - Idli, Dosa & Traditional Specials",
+            "south-indian": "South Indian - Idli, Dosa & Traditional Specials(7am onwards)",
             "meals": "South Indian Meals (12 onwards)",
             "starters": "Starters - Chinese & Manchurian",
             "north-indian": "North Indian - Roti & Curries",
@@ -1291,6 +1276,7 @@
         const cartIcon = document.getElementById('cartIcon');
         const mapLinkContainer = document.getElementById('mapLinkContainer');
         const mapLinkText = document.getElementById('mapLinkText');
+        const menuSection = document.getElementById('menuSection');
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
@@ -1308,6 +1294,9 @@
                     
                     // Load the category items
                     loadCategory(category);
+                    
+                    // Scroll to the menu section smoothly
+                    menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             });
             
@@ -1417,6 +1406,12 @@
                     const name = this.getAttribute('data-name');
                     const price = parseFloat(this.getAttribute('data-price'));
                     addToCart(name, price);
+                    
+                    // Scroll to order panel after adding to cart
+                    document.getElementById('orderPanel').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
                 });
             });
         }
