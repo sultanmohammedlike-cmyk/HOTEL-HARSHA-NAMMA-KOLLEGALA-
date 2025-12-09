@@ -958,7 +958,7 @@
                     <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="South Indian" class="category-image">
                     <div class="category-overlay">
                         <h3>South Indian</h3>
-                        <p>Idli, Dosa & Traditional Specials 7am onwards</p>
+                        <p>Idli, Dosa & Traditional Specials</p>
                     </div>
                 </div>
                 
@@ -1415,11 +1415,8 @@
                     const price = parseFloat(this.getAttribute('data-price'));
                     addToCart(name, price);
                     
-                    // Scroll to order panel after adding to cart
-                    document.getElementById('orderPanel').scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
-                    });
+                    // REMOVED: Auto-scroll to order panel when adding to cart
+                    // Items will be added silently without scrolling
                 });
             });
         }
@@ -1599,5 +1596,6 @@
             window.open(whatsappURL, '_blank');
         }
     </script>
+    
 </body>
     </html>
