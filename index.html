@@ -1105,7 +1105,7 @@
         </div>
     </footer>
 
-    <script>
+<script>
         // Menu data - organized by categories
         const menuData = {
             "most-rated": [
@@ -1247,7 +1247,7 @@
         // Category titles mapping
         const categoryTitles = {
             "most-rated": "Most Rated - Customer Favorites",
-            "south-indian": "South Indian - Idli, Dosa & Traditional Specials(7am onwards)",
+            "south-indian": "South Indian - Idli, Dosa & Traditional Specials",
             "meals": "South Indian Meals (12 onwards)",
             "starters": "Starters - Chinese & Manchurian",
             "north-indian": "North Indian - Roti & Curries",
@@ -1277,6 +1277,14 @@
         const mapLinkContainer = document.getElementById('mapLinkContainer');
         const mapLinkText = document.getElementById('mapLinkText');
         const menuSection = document.getElementById('menuSection');
+
+        // Add event listener for cart icon to scroll to order panel
+        cartIcon.addEventListener('click', function() {
+            document.getElementById('orderPanel').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        });
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
