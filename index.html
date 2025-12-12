@@ -244,168 +244,134 @@
             100% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2); }
         }
         
-        /* Today's Special Section - INSIDE CATEGORIES */
-        .todays-special {
-            background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 2px solid #ffb300;
-            box-shadow: 0 6px 20px rgba(255, 179, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-        
-        .special-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-            position: relative;
-            flex-wrap: wrap;
-        }
-        
-        .special-header h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            color: #ff6b00;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .special-header h2 i {
-            color: #ff9800;
-            font-size: 28px;
-        }
-        
-        .special-tag {
-            background: linear-gradient(to right, #ff6b00, #ff8e53);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.2);
-        }
-        
-        .special-content {
-            display: flex;
-            align-items: stretch;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .special-item {
-            flex: 1;
-            min-width: 100%;
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            border-left: 4px solid #ffb300;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .special-item h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .kannada-name {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 12px;
-            font-style: italic;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed #eee;
-        }
-        
-        .special-price {
-            font-size: 28px;
-            font-weight: 900;
-            color: #ff6b00;
-            text-align: center;
-            margin: 10px 0;
-            background: linear-gradient(to right, #fff8e1, #fff3e0);
-            padding: 10px;
-            border-radius: 8px;
-            border: 2px solid #ffb300;
-        }
-        
-        .special-price span {
-            font-size: 14px;
-            font-weight: 600;
-            color: #666;
-            margin-left: 8px;
-        }
-        
-        .special-description {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-        
-        .special-description i {
-            color: #ff9800;
-            margin-right: 6px;
-            font-size: 12px;
-        }
-        
-        /* Add to Cart button for Today's Special */
-        .special-add-to-cart {
-            background: linear-gradient(to right, var(--primary-green), var(--dark-green));
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            letter-spacing: 0.5px;
-            width: 100%;
-        }
-        
-        .special-add-to-cart:hover {
-            background: linear-gradient(to right, var(--dark-green), #00997a);
-            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        /* Animation for today's special */
-        @keyframes specialHighlight {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-            100% { transform: translateY(0); }
-        }
-        
-        .todays-special {
-            animation: specialHighlight 3s ease-in-out infinite;
-        }
+/* Today's Special Section - COMPACT VERSION */
+.todays-special {
+    background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ffb300;
+    box-shadow: 0 6px 20px rgba(255, 179, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.special-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.special-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ff6b00;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.special-header h2 i {
+    color: #ff9800;
+    font-size: 22px;
+}
+
+.special-tag {
+    background: linear-gradient(to right, #ff6b00, #ff8e53);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.2);
+}
+
+.special-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.special-item {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    border-left: 4px solid #ffb300;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.special-details {
+    flex: 1;
+}
+
+.special-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.kannada-name {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.special-price {
+    font-size: 24px;
+    font-weight: 900;
+    color: #ff6b00;
+    white-space: nowrap;
+}
+
+.special-add-to-cart {
+    background: linear-gradient(to right, var(--primary-green), var(--dark-green));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+}
+
+.special-add-to-cart:hover {
+    background: linear-gradient(to right, var(--dark-green), #00997a);
+    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
+    transform: scale(1.1);
+}
+
+/* Animation for today's special */
+@keyframes specialHighlight {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+    100% { transform: translateY(0); }
+}
+
+.todays-special {
+    animation: specialHighlight 3s ease-in-out infinite;
+}
         
         /* Update category-list to be grid */
         .category-list {
@@ -1232,27 +1198,26 @@
                 
                 <!-- Today's Special Section - INSIDE CATEGORIES -->
                 <div class="todays-special">
-                    <div class="special-header">
-                        <h2><i class="fas fa-star"></i> Today's Special</h2>
-                        <div class="special-tag">
-                            <i class="fas fa-bolt"></i> ಈ ದಿನದ ವಿಶೇಷ
-                        </div>
-                    </div>
-                    <div class="special-content">
-                        <div class="special-item">
-                            <h3><i class="fas fa-utensils"></i> Ragi Shawige</h3>
-                            <div class="kannada-name">ರಾಗಿ ಶಾವಿಗೆ</div>
-                            <div class="special-description">
-                            </div>
-                            <div class="special-price">
-                                ₹60<span>only</span>
-                            </div>
-                            <button class="special-add-to-cart" id="specialAddToCart">
-                                <i class="fas fa-plus"></i> Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <div class="special-header">
+        <h2><i class="fas fa-star"></i> Today's Special</h2>
+        <div class="special-tag">
+            <i class="fas fa-bolt"></i> ಈ ದಿನದ ವಿಶೇಷ
+        </div>
+    </div>
+    <div class="special-content">
+        <div class="special-item">
+            <div class="special-details">
+                <h3>Ragi Shawige</h3>
+                <div class="kannada-name">ರಾಗಿ ಶಾವಿಗೆ</div>
+            </div>
+            <div class="special-price">₹60</div>
+            <button class="special-add-to-cart" id="specialAddToCart">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
                 
                 <div class="category-item most-rated-category active" data-category="most-rated">
                     <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Most Rated" class="category-image">
