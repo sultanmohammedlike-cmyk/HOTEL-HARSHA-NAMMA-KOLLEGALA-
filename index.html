@@ -250,134 +250,9 @@
         }
         
         
-        /* Today's Special Section - COMPACT VERSION */
-.todays-special {
-    background: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 2px solid #ffb300;
-    box-shadow: 0 6px 20px rgba(255, 179, 0, 0.15);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
+        /* Today's // Added this DOM element reference:
 
-.special-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    position: relative;
-}
 
-.special-header h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: #ff6b00;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.special-header h2 i {
-    color: #ff9800;
-    font-size: 22px;
-}
-
-.special-tag {
-    background: linear-gradient(to right, #ff6b00, #ff8e53);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.2);
-}
-
-.special-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.special-item {
-    flex: 1;
-    background: white;
-    border-radius: 8px;
-    padding: 15px;
-    border-left: 4px solid #ffb300;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.special-details {
-    flex: 1;
-}
-
-.special-item h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 4px;
-}
-
-.kannada-name {
-    font-size: 14px;
-    color: #666;
-    font-style: italic;
-}
-
-.special-price {
-    font-size: 24px;
-    font-weight: 900;
-    color: #ff6b00;
-    white-space: nowrap;
-}
-
-.special-add-to-cart {
-    background: linear-gradient(to right, var(--primary-green), var(--dark-green));
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 40px;
-    height: 40px;
-}
-
-.special-add-to-cart:hover {
-    background: linear-gradient(to right, var(--dark-green), #00997a);
-    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
-    transform: scale(1.1);
-}
-
-/* Animation for today's special */
-@keyframes specialHighlight {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-2px); }
-    100% { transform: translateY(0); }
-}
-
-.todays-special {
-    animation: specialHighlight 3s ease-in-out infinite;
-}
         
         /* Update category-list to be grid */
         .category-list {
@@ -949,6 +824,110 @@
             font-size: 24px;
         }
         
+        /* Customer Details Input Styles */
+.customer-detail-input {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+}
+
+.input-group label i {
+    color: var(--primary-green);
+    width: 20px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+    background-color: white;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.phone-note {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    font-style: italic;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-green);
+}
+
+.location-options {
+    margin-top: 20px;
+}
+
+.location-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.location-input input {
+    flex-grow: 1;
+    padding: 16px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.location-input input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+.location-input button {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 22px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.location-input button:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
+}
+        
+        
+        
         /* Footer */
         footer {
             background-color: var(--dark-gray);
@@ -1206,26 +1185,7 @@
             <div class="category-list">
                 
             
-<div class="todays-special">
-    <div class="special-header">
-        <h2><i class="fas fa-star"></i> Today's Special</h2>
-        <div class="special-tag">
-            <i class="fas fa-bolt"></i> ಈ ದಿನದ ವಿಶೇಷ
-        </div>
-    </div>
-    <div class="special-content">
-        <div class="special-item">
-            <div class="special-details">
-                <h3>---</h3>
-                <div class="kannada-name">...</div>
-            </div>
-            <div class="special-price">---</div>
-            <button class="special-add-to-cart" id="specialAddToCart">
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
-    </div>
-</div>
+
 
 
 
@@ -1308,56 +1268,80 @@
                 <!-- Menu items will be dynamically loaded here -->
             </div>
         </div>
-
-        <!-- Order Summary Panel - NOW AT THE BOTTOM -->
-        <div class="order-panel" id="orderPanel">
-            <h2><i class="fas fa-receipt"></i> Your Order</h2>
-            
-            <!-- Minimum Order Requirement -->
-            <div class="min-order-requirement" id="minOrderRequirement">
-                <i class="fas fa-exclamation-circle"></i>
-                Minimum order amount: ₹50 (excluding delivery charge)
-            </div>
-            
-            <div class="order-items" id="orderItems">
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-basket"></i>
-                    <p>Your cart is empty</p>
-                    <p>Add items from the menu</p>
-                </div>
-            </div>
-            
-            <div class="order-summary">
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span id="subtotal">₹0.00</span>
-                </div>
-                <div class="summary-row delivery-charge">
-                    <span>Delivery Charge</span>
-                    <span id="deliveryCharge">₹20.00</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Total</span>
-                    <span id="totalAmount">₹20.00</span>
-                </div>
-            </div>
-            
-            <div class="location-section">
-                <h3><i class="fas fa-map-marker-alt"></i> Delivery Location</h3>
-                <div class="location-input">
-                    <input type="text" id="deliveryAddress" placeholder="Enter your delivery address">
-                    <button id="locateMe"><i class="fas fa-location-arrow"></i></button>
-                </div>
-                <div class="map-link-container" id="mapLinkContainer">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span id="mapLinkText">Google Maps link will appear here after entering address</span>
-                </div>
-            </div>
-            
-            <button class="place-order-btn" id="placeOrderBtn" disabled>
-                <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
-            </button>
+<!-- Order Summary Panel - NOW AT THE BOTTOM -->
+<div class="order-panel" id="orderPanel">
+    <h2><i class="fas fa-receipt"></i> Your Order</h2>
+    
+    <!-- Minimum Order Requirement -->
+    <div class="min-order-requirement" id="minOrderRequirement">
+        <i class="fas fa-exclamation-circle"></i>
+        Minimum order amount: ₹50 (excluding delivery charge)
+    </div>
+    
+    <div class="order-items" id="orderItems">
+        <div class="empty-cart">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Your cart is empty</p>
+            <p>Add items from the menu</p>
         </div>
+    </div>
+    
+    <div class="order-summary">
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">₹0.00</span>
+        </div>
+        <div class="summary-row delivery-charge">
+            <span>Delivery Charge</span>
+            <span id="deliveryCharge">₹20.00</span>
+        </div>
+        <div class="summary-row total">
+            <span>Total</span>
+            <span id="totalAmount">₹20.00</span>
+        </div>
+    </div>
+    
+    <div class="location-section">
+        <h3><i class="fas fa-user"></i> Customer Details</h3>
+        
+        <!-- Phone Number Input -->
+        <div class="customer-detail-input">
+            <div class="input-group">
+                <label for="customerPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                <input type="tel" id="customerPhone" placeholder="Enter your phone number" maxlength="10">
+            </div>
+            <div class="phone-note">We'll contact you on this number for order confirmation</div>
+        </div>
+        
+        <h3><i class="fas fa-map-marker-alt"></i> Delivery Location</h3>
+        
+        <!-- Address Input -->
+        <div class="customer-detail-input">
+            <div class="input-group">
+                <label for="deliveryAddress"><i class="fas fa-home"></i> click green button to get live location<button type="submit"></button></label>
+                <textarea id="deliveryAddress" placeholder="House no, Street, Area, Landmark, City" rows="3"></textarea>
+            </div>
+        </div>
+        
+        <!-- Location Options -->
+        <div class="location-options">
+            <div class="location-input">
+                <input type="text" id="locationDetails" placeholder="type your location">
+                <button id="locateMe" title="Use current location">
+                    <i class="fas fa-location-arrow"></i>
+                </button>
+            </div>
+            <div class="map-link-container" id="mapLinkContainer">
+                <i class="fas fa-map-marked-alt"></i>
+                <span id="mapLinkText">Google Maps link will appear here after entering address</span>
+            </div>
+        </div>
+    </div>
+    
+    <button class="place-order-btn" id="placeOrderBtn" disabled>
+        <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
+    </button>
+</div>
     </div>
 
     <!-- Footer -->
@@ -1565,24 +1549,25 @@
         const minimumOrderAmount = 50.00; // Minimum order excluding delivery charge
         let googleMapsLink = "";
 
-        // DOM elements
-        const menuItemsContainer = document.getElementById('menuItems');
-        const orderItemsContainer = document.getElementById('orderItems');
-        const cartCount = document.getElementById('cartCount');
-        const subtotalElement = document.getElementById('subtotal');
-        const totalAmountElement = document.getElementById('totalAmount');
-        const itemsCountElement = document.getElementById('itemsCount');
-        const categoryTitleElement = document.getElementById('categoryTitle');
-        const categoryItems = document.querySelectorAll('.category-item');
-        const deliveryAddressInput = document.getElementById('deliveryAddress');
-        const locateMeButton = document.getElementById('locateMe');
-        const placeOrderButton = document.getElementById('placeOrderBtn');
-        const cartIcon = document.getElementById('cartIcon');
-        const mapLinkContainer = document.getElementById('mapLinkContainer');
-        const mapLinkText = document.getElementById('mapLinkText');
-        const menuSection = document.getElementById('menuSection');
-        const minOrderRequirement = document.getElementById('minOrderRequirement');
-        const specialAddToCartButton = document.getElementById('specialAddToCart');
+// DOM elements
+const menuItemsContainer = document.getElementById('menuItems');
+const orderItemsContainer = document.getElementById('orderItems');
+const cartCount = document.getElementById('cartCount');
+const subtotalElement = document.getElementById('subtotal');
+const totalAmountElement = document.getElementById('totalAmount');
+const itemsCountElement = document.getElementById('itemsCount');
+const categoryTitleElement = document.getElementById('categoryTitle');
+const categoryItems = document.querySelectorAll('.category-item');
+const customerPhoneInput = document.getElementById('customerPhone'); // NEW
+const deliveryAddressTextarea = document.getElementById('deliveryAddress'); // NEW (was Input, now Textarea)
+const locationDetailsInput = document.getElementById('locationDetails');
+const locateMeButton = document.getElementById('locateMe');
+const placeOrderButton = document.getElementById('placeOrderBtn');
+const cartIcon = document.getElementById('cartIcon');
+const mapLinkContainer = document.getElementById('mapLinkContainer');
+const mapLinkText = document.getElementById('mapLinkText');
+const menuSection = document.getElementById('menuSection');
+const minOrderRequirement = document.getElementById('minOrderRequirement');
 
         // Add event listener for cart icon to scroll to order panel
         cartIcon.addEventListener('click', function() {
@@ -1597,10 +1582,7 @@
             // Load the initial category (most-rated)
             loadCategory('most-rated');
             
-            // Add event listener for Today's Special Add to Cart button
-            specialAddToCartButton.addEventListener('click', function() {
-                addToCart("Ragi Shawige", 60.00);
-            });
+
             
             // Add event listeners to category items
             categoryItems.forEach(item => {
@@ -1619,68 +1601,68 @@
                 });
             });
             
-            // Add event listener for locate me button
-            locateMeButton.addEventListener('click', function() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                        function(position) {
-                            const lat = position.coords.latitude;
-                            const lng = position.coords.longitude;
-                            
-                            // Create Google Maps link
-                            googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
-                            
-                            // Use reverse geocoding to get address from coordinates
-                            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
-                                .then(response => response.json())
-                                .then(data => {
-                                    const address = data.display_name;
-                                    deliveryAddressInput.value = address.substring(0, 100); // Limit length
-                                    
-                                    // Update map link display
-                                    mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-                                    mapLinkContainer.style.cursor = "pointer";
-                                    mapLinkContainer.onclick = function() {
-                                        window.open(googleMapsLink, '_blank');
-                                    };
-                                })
-                                .catch(error => {
-                                    console.error('Error fetching address:', error);
-                                    deliveryAddressInput.value = `Near ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-                                    mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-                                    mapLinkContainer.style.cursor = "pointer";
-                                    mapLinkContainer.onclick = function() {
-                                        window.open(googleMapsLink, '_blank');
-                                    };
-                                });
-                        },
-                        function(error) {
-                            console.error('Error getting location:', error);
-                            alert('Unable to retrieve your location. Please enter your address manually.');
-                        }
-                    );
-                } else {
-                    alert('Geolocation is not supported by your browser.');
-                }
-            });
+// Add event listener for locate me button
+locateMeButton.addEventListener('click', function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                
+                // Create Google Maps link
+                googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+                
+                // Use reverse geocoding to get address from coordinates
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const address = data.display_name;
+                        deliveryAddressTextarea.value = address.substring(0, 200); // Changed to textarea
+                        
+                        // Update map link display
+                        mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+                        mapLinkContainer.style.cursor = "pointer";
+                        mapLinkContainer.onclick = function() {
+                            window.open(googleMapsLink, '_blank');
+                        };
+                    })
+                    .catch(error => {
+                        console.error('Error fetching address:', error);
+                        deliveryAddressTextarea.value = `Near ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+                        mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+                        mapLinkContainer.style.cursor = "pointer";
+                        mapLinkContainer.onclick = function() {
+                            window.open(googleMapsLink, '_blank');
+                        };
+                    });
+            },
+            function(error) {
+                console.error('Error getting location:', error);
+                alert('Unable to retrieve your location. Please enter your address manually.');
+            }
+        );
+    } else {
+        alert('Geolocation is not supported by your browser.');
+    }
+});
             
-            // Add event listener for address input to generate Google Maps link
-            deliveryAddressInput.addEventListener('input', function() {
-                const address = this.value.trim();
-                if (address.length > 5) {
-                    // Create Google Maps link for the address
-                    googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-                    mapLinkText.textContent = `Google Maps Link for: ${address.substring(0, 50)}${address.length > 50 ? '...' : ''}`;
-                    mapLinkContainer.style.cursor = "pointer";
-                    mapLinkContainer.onclick = function() {
-                        window.open(googleMapsLink, '_blank');
-                    };
-                } else {
-                    mapLinkText.textContent = "Google Maps link will appear here after entering address";
-                    mapLinkContainer.style.cursor = "default";
-                    mapLinkContainer.onclick = null;
-                }
-            });
+     // Add event listener for address input to generate Google Maps link
+deliveryAddressTextarea.addEventListener('input', function() {
+    const address = this.value.trim();
+    if (address.length > 5) {
+        // Create Google Maps link for the address
+        googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+        mapLinkText.textContent = `Google Maps Link for entered address`;
+        mapLinkContainer.style.cursor = "pointer";
+        mapLinkContainer.onclick = function() {
+            window.open(googleMapsLink, '_blank');
+        };
+    } else {
+        mapLinkText.textContent = "Google Maps link will appear here after entering address";
+        mapLinkContainer.style.cursor = "default";
+        mapLinkContainer.onclick = null;
+    }
+});
             
             // Add event listener for place order button
             placeOrderButton.addEventListener('click', placeOrder);
@@ -1871,64 +1853,88 @@
             updateCart();
         }
 
-        // Place order via WhatsApp
-        function placeOrder() {
-            if (cart.length === 0) {
-                alert('Your cart is empty. Please add items before placing an order.');
-                return;
-            }
-            
-            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            
-            // Check minimum order requirement
-            if (subtotal < minimumOrderAmount) {
-                alert(`Minimum order amount is ₹${minimumOrderAmount} (excluding delivery charge). Please add more items to your cart.`);
-                return;
-            }
-            
-            const address = deliveryAddressInput.value.trim();
-            if (!address) {
-                alert('Please enter your delivery address.');
-                deliveryAddressInput.focus();
-                return;
-            }
-            
-            if (!googleMapsLink) {
-                alert('Please wait for Google Maps link to generate or enter a valid address.');
-                return;
-            }
-            
-            // Prepare order details
-            const total = subtotal + deliveryCharge;
-            
-            let orderText = `*Hotel Harsha - Food Order*\n\n`;
-            orderText += `*Customer Details:*\n`;
-            orderText += `Delivery Address: ${address}\n`;
-            orderText += `Google Maps Location: ${googleMapsLink}\n\n`;
-            orderText += `*Order Items:*\n`;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
-            });
-            
-            orderText += `\n*Order Summary:*\n`;
-            orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
-            orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
-            orderText += `*Total: ₹${total.toFixed(2)}*\n`;
-            orderText += `Minimum order requirement: ₹${minimumOrderAmount} (excluding delivery)\n`;
-            orderText += `Order Ref: 1HH\n\n`;
-            orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
-            orderText += `Please confirm this order. Thank you!`;
-            
-            // Encode the message for WhatsApp URL
-            const encodedMessage = encodeURIComponent(orderText);
-            const phoneNumber = '97313 43143';
-            const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
-            
-            // Open WhatsApp in a new tab
-            window.open(whatsappURL, '_blank');
-        }
+// Place order via WhatsApp
+function placeOrder() {
+    if (cart.length === 0) {
+        alert('Your cart is empty. Please add items before placing an order.');
+        return;
+    }
+    
+    const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    
+    // Check minimum order requirement
+    if (subtotal < minimumOrderAmount) {
+        alert(`Minimum order amount is ₹${minimumOrderAmount} (excluding delivery charge). Please add more items to your cart.`);
+        return;
+    }
+    
+    // Get customer details
+    const phone = customerPhoneInput.value.trim();
+    const address = deliveryAddressTextarea.value.trim();
+    const locationDetails = locationDetailsInput.value.trim();
+    // Validation
+    if (!phone) {
+        alert('Please enter your phone number.');
+        customerPhoneInput.focus();
+        return;
+    }
+    
+    if (!/^\d{10}$/.test(phone)) {
+        alert('Please enter a valid 10-digit phone number.');
+        customerPhoneInput.focus();
+        return;
+    }
+    
+    if (!address) {
+        alert('Please enter your delivery address.');
+        deliveryAddressTextarea.focus();
+        return;
+    }
+    
+    if (address.length < 10) {
+        alert('Please enter a complete delivery address with house number, street, and area.');
+        deliveryAddressTextarea.focus();
+        return;
+    }
+    
+    if (!googleMapsLink) {
+        alert('Please wait for Google Maps link to generate or enter a valid address.');
+        return;
+    }
+    
+    // Prepare order details
+    const total = subtotal + deliveryCharge;
+    
+    let orderText = `*Hotel Harsha - Food Order*\n\n`;
+    orderText += `*Customer Details:*\n`;
+    orderText += `Phone: ${phone}\n`;
+    orderText += `Address: ${address}\n`;
+    if (locationDetails) orderText += `Additional Details: ${locationDetails}\n`;
+    orderText += `Google Maps: ${googleMapsLink}\n\n`;
+    orderText += `*Order Items:*\n`;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
+    });
+    
+    orderText += `\n*Order Summary:*\n`;
+    orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
+    orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
+    orderText += `*Total: ₹${total.toFixed(2)}*\n`;
+    orderText += `Minimum order requirement: ₹${minimumOrderAmount} (excluding delivery)\n`;
+    orderText += `Order Ref: 1HH\n\n`;
+    orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
+    orderText += `Please confirm this order. Thank you!`;
+    
+    // Encode the message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(orderText);
+    const phoneNumber = '97313 43143';
+    const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, '_blank');
+}
     </script>
     
 </body>
