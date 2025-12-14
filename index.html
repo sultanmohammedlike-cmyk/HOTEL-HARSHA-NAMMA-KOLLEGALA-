@@ -319,60 +319,7 @@
     flex: 1;
 }
 
-.special-item h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 4px;
-}
 
-.kannada-name {
-    font-size: 14px;
-    color: #666;
-    font-style: italic;
-}
-
-.special-price {
-    font-size: 24px;
-    font-weight: 900;
-    color: #ff6b00;
-    white-space: nowrap;
-}
-
-.special-add-to-cart {
-    background: linear-gradient(to right, var(--primary-green), var(--dark-green));
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 40px;
-    height: 40px;
-}
-
-.special-add-to-cart:hover {
-    background: linear-gradient(to right, var(--dark-green), #00997a);
-    box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
-    transform: scale(1.1);
-}
-
-/* Animation for today's special */
-@keyframes specialHighlight {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-2px); }
-    100% { transform: translateY(0); }
-}
-
-.todays-special {
-    animation: specialHighlight 3s ease-in-out infinite;
-}
-        
         /* Update category-list to be grid */
         .category-list {
             display: flex;
@@ -1196,27 +1143,7 @@
             <h2><i class="fas fa-utensils"></i> Food Categories</h2>
             <div class="category-list">
                 
-                <!-- Today's Special Section - INSIDE CATEGORIES -->
-                <div class="todays-special">
-    <div class="special-header">
-        <h2><i class="fas fa-star"></i> Today's Special</h2>
-        <div class="special-tag">
-            <i class="fas fa-bolt"></i> ಈ ದಿನದ ವಿಶೇಷ
-        </div>
-    </div>
-    <div class="special-content">
-        <div class="special-item">
-            <div class="special-details">
-                <h3>Ragi Shawige</h3>
-                <div class="kannada-name">ರಾಗಿ ಶಾವಿಗೆ</div>
-            </div>
-            <div class="special-price">₹60</div>
-            <button class="special-add-to-cart" id="specialAddToCart">
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
-    </div>
-</div>
+                
 
                 
                 <div class="category-item most-rated-category active" data-category="most-rated">
