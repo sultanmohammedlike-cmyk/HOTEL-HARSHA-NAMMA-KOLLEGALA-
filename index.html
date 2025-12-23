@@ -250,10 +250,6 @@
         }
         
         
-        /* Today's // Added this DOM element reference:
-
-
-        
         /* Update category-list to be grid */
         .category-list {
             display: flex;
@@ -925,8 +921,70 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
 }
-        
-        
+
+/* QR Code Section */
+.qr-section {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px dashed var(--medium-gray);
+    text-align: center;
+}
+
+.qr-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.qr-code {
+    max-width: 200px;
+    margin: 0 auto 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--primary-green);
+}
+
+.qr-note {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.qr-note strong {
+    color: var(--dark-green);
+    font-weight: 700;
+}
+
+.order-ref-note {
+    background-color: var(--light-green);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 15px;
+    color: var(--dark-gray);
+    border-left: 4px solid var(--primary-green);
+}
+
+.order-ref-note strong {
+    color: var(--dark-green);
+    font-weight: 800;
+}
+
+.random-order-number {
+    font-weight: 900;
+    color: #ff6b6b;
+    background-color: #fff5f5;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-left: 5px;
+    border: 2px solid #ffcccc;
+}
         
         /* Footer */
         footer {
@@ -1341,6 +1399,18 @@
     <button class="place-order-btn" id="placeOrderBtn" disabled>
         <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
     </button>
+    
+    <!-- QR Code Section -->
+    <div class="qr-section">
+        <h3><i class="fas fa-qrcode"></i> Quick Payment</h3>
+        <img src="/Screenshot_20251223-164546_WhatsApp.jpg" alt="Hotel Harsha UPI QR Code" class="qr-code">
+        <div class="qr-note">
+            Scan to pay via UPI. After payment, share screenshot with your <strong>order number</strong> on WhatsApp.
+        </div>
+        <div class="order-ref-note">
+            Every order earns <strong>1HH point</strong> .<strong>1HH</strong> + <span class="random-order-number" id="randomOrderNumber">HH12345</span>
+        </div>
+    </div>
 </div>
     </div>
 
@@ -1411,6 +1481,8 @@
             "south-indian": [
                 { name: "Idli (2 pcs)", price: 30.00, category: "Breakfast", mostRated: true },
                 { name: "Vade (1 pc)", price: 20.00, category: "Breakfast", mostRated: true },
+                { name: "Masale Idli", price: 50.00, category: "Dosa", timing: "4pm onwards" },
+                { name: "Onion Dosa", price: 70.00, category: "Dosa", timing: "4pm onwards" },
                 { name: "Kesari Bhat", price: 40.00, category: "Rice" },
                 { name: "Khara Bhat", price: 40.00, category: "Rice" },
                 { name: "Bisi bele bath", price: 60.00, category: "Rice", mostRated: true },
@@ -1548,6 +1620,19 @@
         const deliveryCharge = 20.00;
         const minimumOrderAmount = 50.00; // Minimum order excluding delivery charge
         let googleMapsLink = "";
+        let currentOrderNumber = generateRandomOrderNumber();
+
+        // Function to generate random order number
+        function generateRandomOrderNumber() {
+            const prefix = 'HH';
+            const randomNum = Math.floor(10000 + Math.random() * 90000);
+            return prefix + randomNum;
+        }
+
+        // Update order number display
+        function updateOrderNumberDisplay() {
+            document.getElementById('randomOrderNumber').textContent = currentOrderNumber;
+        }
 
 // DOM elements
 const menuItemsContainer = document.getElementById('menuItems');
@@ -1558,8 +1643,8 @@ const totalAmountElement = document.getElementById('totalAmount');
 const itemsCountElement = document.getElementById('itemsCount');
 const categoryTitleElement = document.getElementById('categoryTitle');
 const categoryItems = document.querySelectorAll('.category-item');
-const customerPhoneInput = document.getElementById('customerPhone'); // NEW
-const deliveryAddressTextarea = document.getElementById('deliveryAddress'); // NEW (was Input, now Textarea)
+const customerPhoneInput = document.getElementById('customerPhone');
+const deliveryAddressTextarea = document.getElementById('deliveryAddress');
 const locationDetailsInput = document.getElementById('locationDetails');
 const locateMeButton = document.getElementById('locateMe');
 const placeOrderButton = document.getElementById('placeOrderBtn');
@@ -1581,6 +1666,7 @@ const minOrderRequirement = document.getElementById('minOrderRequirement');
         document.addEventListener('DOMContentLoaded', function() {
             // Load the initial category (most-rated)
             loadCategory('most-rated');
+            updateOrderNumberDisplay();
             
 
             
@@ -1617,7 +1703,7 @@ locateMeButton.addEventListener('click', function() {
                     .then(response => response.json())
                     .then(data => {
                         const address = data.display_name;
-                        deliveryAddressTextarea.value = address.substring(0, 200); // Changed to textarea
+                        deliveryAddressTextarea.value = address.substring(0, 200);
                         
                         // Update map link display
                         mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
@@ -1872,6 +1958,7 @@ function placeOrder() {
     const phone = customerPhoneInput.value.trim();
     const address = deliveryAddressTextarea.value.trim();
     const locationDetails = locationDetailsInput.value.trim();
+    
     // Validation
     if (!phone) {
         alert('Please enter your phone number.');
@@ -1906,6 +1993,7 @@ function placeOrder() {
     const total = subtotal + deliveryCharge;
     
     let orderText = `*Hotel Harsha - Food Order*\n\n`;
+    orderText += `*Order Number:* ${currentOrderNumber}\n\n`;
     orderText += `*Customer Details:*\n`;
     orderText += `Phone: ${phone}\n`;
     orderText += `Address: ${address}\n`;
@@ -1923,6 +2011,7 @@ function placeOrder() {
     orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
     orderText += `*Total: ₹${total.toFixed(2)}*\n`;
     orderText += `Minimum order requirement: ₹${minimumOrderAmount} (excluding delivery)\n`;
+    orderText += `Order Points: 1HH point earned (10% discount on next order)\n`;
     orderText += `Order Ref: 1HH\n\n`;
     orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
     orderText += `Please confirm this order. Thank you!`;
@@ -1931,6 +2020,25 @@ function placeOrder() {
     const encodedMessage = encodeURIComponent(orderText);
     const phoneNumber = '97313 43143';
     const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
+    
+    // Generate new order number for next order
+    currentOrderNumber = generateRandomOrderNumber();
+    updateOrderNumberDisplay();
+    
+    // Clear the cart after order
+    cart = [];
+    updateCart();
+    
+    // Reset customer details
+    customerPhoneInput.value = '';
+    deliveryAddressTextarea.value = '';
+    locationDetailsInput.value = '';
+    mapLinkText.textContent = "Google Maps link will appear here after entering address";
+    mapLinkContainer.style.cursor = "default";
+    mapLinkContainer.onclick = null;
+    
+    // Show success message
+    alert(`Order placed successfully! Your order number is ${currentOrderNumber}. Opening WhatsApp...`);
     
     // Open WhatsApp in a new tab
     window.open(whatsappURL, '_blank');
