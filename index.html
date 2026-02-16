@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* styles remain exactly as in original – no changes needed for styling */
         * {
             margin: 0;
             padding: 0;
@@ -184,11 +185,6 @@
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
         
-        
-
-        
-        
-        
         /* Catering Services Banner */
         .catering-banner {
             background: linear-gradient(to right, #ff6b6b, #ff8e53);
@@ -249,16 +245,11 @@
             100% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2); }
         }
         
-        
-        /* Update category-list to be grid */
         .category-list {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
-        
-
         
         /* Main Content - UPDATED LAYOUT */
         .main-content {
@@ -368,7 +359,6 @@
             background: linear-gradient(to top, rgba(255, 107, 107, 0.9), rgba(255, 107, 107, 0.7));
         }
 
-        /* Most Rated Badge */
         .most-rated-badge {
             position: absolute;
             top: 15px;
@@ -506,6 +496,19 @@
             border: 1px solid #ffcccc;
         }
         
+        /* free delivery badge */
+        .free-delivery-badge {
+            display: inline-block;
+            font-size: 13px;
+            color: #00b894;
+            background-color: #e8f6f3;
+            padding: 4px 10px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            border: 1px solid #00b894;
+        }
+        
         .add-to-cart {
             background: linear-gradient(to right, var(--primary-green), var(--dark-green));
             color: white;
@@ -538,7 +541,7 @@
             box-shadow: var(--shadow);
             padding: 30px;
             height: fit-content;
-            order: 3; /* This ensures it appears last */
+            order: 3;
         }
         
         .order-panel h2 {
@@ -567,7 +570,6 @@
             color: var(--primary-green);
         }
         
-        /* Minimum order requirement */
         .min-order-requirement {
             background-color: #fff5f5;
             border: 2px dashed #ff6b6b;
@@ -699,6 +701,9 @@
             color: #ff6b6b;
             font-weight: 600;
         }
+        .delivery-charge.free {
+            color: #00b894;
+        }
         
         .location-section {
             margin-bottom: 25px;
@@ -821,170 +826,170 @@
         }
         
         /* Customer Details Input Styles */
-.customer-detail-input {
-    margin-bottom: 20px;
-}
+        .customer-detail-input {
+            margin-bottom: 20px;
+        }
 
-.input-group {
-    margin-bottom: 15px;
-}
+        .input-group {
+            margin-bottom: 15px;
+        }
 
-.input-group label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--dark-gray);
-}
+        .input-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+        }
 
-.input-group label i {
-    color: var(--primary-green);
-    width: 20px;
-}
+        .input-group label i {
+            color: var(--primary-green);
+            width: 20px;
+        }
 
-.input-group input,
-.input-group textarea {
-    width: 100%;
-    padding: 16px;
-    border: 2px solid var(--medium-gray);
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    transition: var(--transition);
-    background-color: white;
-}
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            background-color: white;
+        }
 
-.input-group input:focus,
-.input-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-green);
-    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
-}
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+        }
 
-.input-group textarea {
-    resize: vertical;
-    min-height: 80px;
-}
+        .input-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
 
-.phone-note {
-    font-size: 14px;
-    color: #666;
-    margin-top: 8px;
-    font-style: italic;
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 8px;
-    border-radius: 6px;
-    border-left: 3px solid var(--primary-green);
-}
+        .phone-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-green);
+        }
 
-.location-options {
-    margin-top: 20px;
-}
+        .location-options {
+            margin-top: 20px;
+        }
 
-.location-input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
+        .location-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
-.location-input input {
-    flex-grow: 1;
-    padding: 16px;
-    border: 2px solid var(--medium-gray);
-    border-radius: 10px;
-    font-size: 16px;
-    transition: var(--transition);
-}
+        .location-input input {
+            flex-grow: 1;
+            padding: 16px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
 
-.location-input input:focus {
-    outline: none;
-    border-color: var(--primary-green);
-    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
-}
+        .location-input input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+        }
 
-.location-input button {
-    background-color: var(--primary-green);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 16px 22px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: var(--transition);
-}
+        .location-input button {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 16px 22px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+        }
 
-.location-input button:hover {
-    background-color: var(--dark-green);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
-}
+        .location-input button:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
+        }
 
-/* QR Code Section */
-.qr-section {
-    margin-top: 25px;
-    padding-top: 25px;
-    border-top: 2px dashed var(--medium-gray);
-    text-align: center;
-}
+        /* QR Code Section */
+        .qr-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px dashed var(--medium-gray);
+            text-align: center;
+        }
 
-.qr-section h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: var(--dark-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
+        .qr-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
-.qr-code {
-    max-width: 200px;
-    margin: 0 auto 15px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border: 3px solid var(--primary-green);
-}
+        .qr-code {
+            max-width: 200px;
+            margin: 0 auto 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--primary-green);
+        }
 
-.qr-note {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-    line-height: 1.5;
-}
+        .qr-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
 
-.qr-note strong {
-    color: var(--dark-green);
-    font-weight: 700;
-}
+        .qr-note strong {
+            color: var(--dark-green);
+            font-weight: 700;
+        }
 
-.order-ref-note {
-    background-color: var(--light-green);
-    border-radius: 8px;
-    padding: 12px;
-    margin-top: 15px;
-    font-size: 15px;
-    color: var(--dark-gray);
-    border-left: 4px solid var(--primary-green);
-}
+        .order-ref-note {
+            background-color: var(--light-green);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 15px;
+            color: var(--dark-gray);
+            border-left: 4px solid var(--primary-green);
+        }
 
-.order-ref-note strong {
-    color: var(--dark-green);
-    font-weight: 800;
-}
+        .order-ref-note strong {
+            color: var(--dark-green);
+            font-weight: 800;
+        }
 
-.random-order-number {
-    font-weight: 900;
-    color: #ff6b6b;
-    background-color: #fff5f5;
-    padding: 4px 12px;
-    border-radius: 6px;
-    display: inline-block;
-    margin-left: 5px;
-    border: 2px solid #ffcccc;
-}
+        .random-order-number {
+            font-weight: 900;
+            color: #ff6b6b;
+            background-color: #fff5f5;
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-left: 5px;
+            border: 2px solid #ffcccc;
+        }
         
         /* Footer */
         footer {
@@ -1166,7 +1171,6 @@
             }
         }
         
-        /* Animations */
         @keyframes cartBounce {
             0% { transform: scale(1); }
             50% { transform: scale(1.3); }
@@ -1177,7 +1181,6 @@
             animation: cartBounce 0.5s ease;
         }
         
-        /* Empty cart message */
         .empty-cart {
             text-align: center;
             padding: 50px 20px;
@@ -1195,7 +1198,6 @@
             font-size: 18px;
         }
         
-        /* Fade in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1205,7 +1207,6 @@
             animation: fadeIn 0.5s ease forwards;
         }
         
-        /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
         }
@@ -1241,18 +1242,20 @@
         <div class="categories-sidebar">
             <h2><i class="fas fa-utensils"></i> Food Categories</h2>
             <div class="category-list">
-                
-            
-
-
-
-
-                
+                <!-- Most Rated -->
                 <div class="category-item most-rated-category active" data-category="most-rated">
                     <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Most Rated" class="category-image">
                     <div class="category-overlay">
                         <h3>Most Rated</h3>
                         <p>Customer Favorites</p>
+                    </div>
+                </div>
+                <!-- Combo Meals (new) -->
+                <div class="category-item" data-category="combo">
+                    <img src="https://images.unsplash.com/photo-1603105037880-4cdac2fcc779?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Combo Meals" class="category-image">
+                    <div class="category-overlay">
+                        <h3>Combo Meals</h3>
+                        <p>Free delivery on combos! 8am-12pm & 12pm-7pm</p>
                     </div>
                 </div>
                 <div class="category-item" data-category="south-indian">
@@ -1262,7 +1265,6 @@
                         <p>Idli, Dosa & Traditional Specials</p>
                     </div>
                 </div>
-                
                 <div class="category-item" data-category="meals">
                     <img src="https://images.unsplash.com/photo-1742281257687-092746ad6021?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meals" class="category-image">
                     <div class="category-overlay">
@@ -1270,7 +1272,6 @@
                         <p>South Indian Meals (12 onwards)</p>
                     </div>
                 </div>
-                
                 <div class="category-item" data-category="starters">
                     <img src="https://images.unsplash.com/photo-1643478224346-47bd9ed48e36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Starters" class="category-image">
                     <div class="category-overlay">
@@ -1309,8 +1310,8 @@
                         <i class="fas fa-utensils"></i>
                         <span>ನಮ್ಮಲ್ಲಿ ಶುಭಸಮಾರಂಭಗಳಿಗೆ ಕೇಟರಿಂಗ್  ಮಾಡಿಕೊಡಲಾಗುತ್ತದೆ  (Catering services available for functions)</span>
                     </div>
-                    <a href="tel:+919731343143" class="catering-phone">
-                        <i class="fas fa-phone"></i> +91 97313 43143
+                    <a href="tel:+919353316903" class="catering-phone">
+                        <i class="fas fa-phone"></i> +91 93533 16903
                     </a>
                 </div>
             </div>
@@ -1326,95 +1327,93 @@
                 <!-- Menu items will be dynamically loaded here -->
             </div>
         </div>
-<!-- Order Summary Panel - NOW AT THE BOTTOM -->
-<div class="order-panel" id="orderPanel">
-    <h2><i class="fas fa-receipt"></i> Your Order</h2>
-    
-    <!-- Minimum Order Requirement -->
-    <div class="min-order-requirement" id="minOrderRequirement">
-        <i class="fas fa-exclamation-circle"></i>
-        Minimum order amount: ₹50 (excluding delivery charge)
-    </div>
-    
-    <div class="order-items" id="orderItems">
-        <div class="empty-cart">
-            <i class="fas fa-shopping-basket"></i>
-            <p>Your cart is empty</p>
-            <p>Add items from the menu</p>
-        </div>
-    </div>
-    
-    <div class="order-summary">
-        <div class="summary-row">
-            <span>Subtotal</span>
-            <span id="subtotal">₹0.00</span>
-        </div>
-        <div class="summary-row delivery-charge">
-            <span>Delivery Charge</span>
-            <span id="deliveryCharge">₹20.00</span>
-        </div>
-        <div class="summary-row total">
-            <span>Total</span>
-            <span id="totalAmount">₹20.00</span>
-        </div>
-    </div>
-    
-    <div class="location-section">
-        <h3><i class="fas fa-user"></i> Customer Details</h3>
-        
-        <!-- Phone Number Input -->
-        <div class="customer-detail-input">
-            <div class="input-group">
-                <label for="customerPhone"><i class="fas fa-phone"></i> Phone Number</label>
-                <input type="tel" id="customerPhone" placeholder="Enter your phone number" maxlength="10">
+
+        <!-- Order Summary Panel - NOW AT THE BOTTOM -->
+        <div class="order-panel" id="orderPanel">
+            <h2><i class="fas fa-receipt"></i> Your Order</h2>
+            
+            <!-- Minimum Order Requirement -->
+            <div class="min-order-requirement" id="minOrderRequirement">
+                <i class="fas fa-exclamation-circle"></i>
+                Minimum order amount: ₹100 (food total) + delivery charge if applicable
             </div>
-            <div class="phone-note">We'll contact you on this number for order confirmation</div>
-        </div>
-        
-        <h3><i class="fas fa-map-marker-alt"></i> Delivery Location</h3>
-        
-        <!-- Address Input -->
-        <div class="customer-detail-input">
-            <div class="input-group">
-                <label for="deliveryAddress"><i class="fas fa-home"></i> click green button to get live location<button type="submit"></button></label>
-                <textarea id="deliveryAddress" placeholder="House no, Street, Area, Landmark, City" rows="3"></textarea>
+            
+            <div class="order-items" id="orderItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Your cart is empty</p>
+                    <p>Add items from the menu</p>
+                </div>
+            </div>
+            
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row delivery-charge" id="deliveryChargeRow">
+                    <span>Delivery Charge</span>
+                    <span id="deliveryCharge">₹30.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="totalAmount">₹30.00</span>
+                </div>
+            </div>
+            
+            <div class="location-section">
+                <h3><i class="fas fa-user"></i> Customer Details</h3>
+                
+                <!-- Phone Number Input -->
+                <div class="customer-detail-input">
+                    <div class="input-group">
+                        <label for="customerPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" id="customerPhone" placeholder="Enter your phone number" maxlength="10">
+                    </div>
+                    <div class="phone-note">We'll contact you on this number for order confirmation</div>
+                </div>
+                
+                <h3><i class="fas fa-map-marker-alt"></i> Delivery Location</h3>
+                
+                <!-- Address Input -->
+                <div class="customer-detail-input">
+                    <div class="input-group">
+                        <label for="deliveryAddress"><i class="fas fa-home"></i> click green button to get live location<button type="submit"></button></label>
+                        <textarea id="deliveryAddress" placeholder="House no, Street, Area, Landmark, City" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Location Options -->
+                <div class="location-options">
+                    <div class="location-input">
+                        <input type="text" id="locationDetails" placeholder="type your location">
+                        <button id="locateMe" title="Use current location">
+                            <i class="fas fa-location-arrow"></i>
+                        </button>
+                    </div>
+                    <div class="map-link-container" id="mapLinkContainer">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span id="mapLinkText">Google Maps link will appear here after entering address</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="place-order-btn" id="placeOrderBtn" disabled>
+                <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
+            </button>
+            
+            <!-- QR Code Section -->
+            <div class="qr-section">
+                <h3><i class="fas fa-qrcode"></i> Quick Payment</h3>
+                <img src="./Screenshot_20251223-164546_WhatsApp.jpg" alt="Hotel Harsha UPI QR Code" class="qr-code">
+                <div class="qr-note">
+                    Scan to pay via UPI. After payment, share screenshot with your <strong>order number</strong> on WhatsApp.
+                </div>
+                <div class="order-ref-note">
+                    Every order earns <strong>1HH point</strong> .<strong>1HH</strong> + <span class="random-order-number" id="randomOrderNumber">HH12345</span>
+                </div>
             </div>
         </div>
-        
-        <!-- Location Options -->
-        <div class="location-options">
-            <div class="location-input">
-                <input type="text" id="locationDetails" placeholder="type your location">
-                <button id="locateMe" title="Use current location">
-                    <i class="fas fa-location-arrow"></i>
-                </button>
-            </div>
-            <div class="map-link-container" id="mapLinkContainer">
-                <i class="fas fa-map-marked-alt"></i>
-                <span id="mapLinkText">Google Maps link will appear here after entering address</span>
-            </div>
-        </div>
-    </div>
-    
-    <button class="place-order-btn" id="placeOrderBtn" disabled>
-        <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
-    </button>
-    
-    <!-- QR Code Section -->
-    <div class="qr-section">
-        <h3><i class="fas fa-qrcode"></i> Quick Payment</h3>
-        <img 
-  src="./Screenshot_20251223-164546_WhatsApp.jpg" 
-  alt="Hotel Harsha UPI QR Code" 
-  class="qr-code">
-        <div class="qr-note">
-            Scan to pay via UPI. After payment, share screenshot with your <strong>order number</strong> on WhatsApp.
-        </div>
-        <div class="order-ref-note">
-            Every order earns <strong>1HH point</strong> .<strong>1HH</strong> + <span class="random-order-number" id="randomOrderNumber">HH12345</span>
-        </div>
-    </div>
-</div>
     </div>
 
     <!-- Footer -->
@@ -1431,7 +1430,7 @@
                     <div class="contact-info">
                         <div>
                             <i class="fas fa-phone"></i>
-                            <span>+91 97313 43143</span>
+                            <span>+91 93533 16903</span>
                         </div>
                         <div>
                             <i class="fas fa-envelope"></i>
@@ -1445,7 +1444,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>Kollegala, Karnataka</span>
                         </div>
-                        <a href="https://wa.me/+91 97313 43143" class="whatsapp-btn" target="_blank">
+                        <a href="https://wa.me/919353316903" class="whatsapp-btn" target="_blank">
                             <i class="fab fa-whatsapp"></i> Order on WhatsApp
                         </a>
                     </div>
@@ -1453,10 +1452,10 @@
                 
                 <div class="footer-section">
                     <h3>Delivery Info</h3>
-                    <p>We deliver within 5km radius. Delivery charge: ₹20. Delivery time: 15-30 minutes.</p>
+                    <p>We deliver within 5km radius. Delivery charge: ₹30 (Free for combo meals). Delivery time: 15-30 minutes.</p>
                     <p>Payment: Cash on delivery or UPI</p>
-                    <p>Minimum order: ₹50 (excluding delivery charge)</p>
-                    <p>50HH point=10% discount, AND IMAGES ABOVE , ARE , creative visualisation</p>
+                    <p>Minimum food order: ₹100 (delivery extra if applicable)</p>
+                    <p>50HH point=10% discount, AND IMAGES ABOVE ARE creative visualisation</p>
                 </div>
             </div>
             
@@ -1480,6 +1479,10 @@
                 { name: "Noodles Simply", price: 100.00, category: "Starters", mostRated: true, timing: "1pm onwards" },
                 { name: "Gobi Manchurian", price: 80.00, category: "Starters", mostRated: true, timing: "1pm onwards" },
                 { name: "Veg Fried Rice", price: 100.00, category: "Rice", mostRated: true, timing: "1pm onwards" }
+            ],
+            "combo": [   // new combo category
+                { name: "Tiffin Combo 99", price: 99.00, category: "Combo", timing: "8am-12pm", freeDelivery: true },
+                { name: "North Meal Combo 199", price: 199.00, category: "Combo", timing: "12pm-7pm", freeDelivery: true }
             ],
             "south-indian": [
                 { name: "Idli (2 pcs)", price: 30.00, category: "Breakfast", mostRated: true },
@@ -1515,13 +1518,10 @@
                 { name: "Rawe Dosa", price: 50.00, category: "Dosa" },
                 { name: "Eerulli Dosa", price: 70.00, category: "Dosa" }
             ],
-            
-               "meals": [
-               { name: "ಊಟ (ಸೌತ್ ಇಂಡಿಯನ್)", price: 90.00, category: "South Indian Meals" },
-               { name: "ಮಿನಿಮಿಲ್ಸ", price: 50.00, category: "South Indian Meals" }
+            "meals": [
+                { name: "ಊಟ (ಸೌತ್ ಇಂಡಿಯನ್)", price: 90.00, category: "South Indian Meals" },
+                { name: "ಮಿನಿಮಿಲ್ಸ", price: 50.00, category: "South Indian Meals" }
             ],
-            
-            
             "starters": [
                 { name: "Gobi Manchurian", price: 80.00, category: "Gobi", mostRated: true, timing: "1pm onwards" },
                 { name: "Gobi Chilly", price: 120.00, category: "Gobi", timing: "1pm onwards" },
@@ -1607,9 +1607,10 @@
             ]
         };
 
-        // Category titles mapping
+        // Category titles mapping (added combo)
         const categoryTitles = {
             "most-rated": "Most Rated - Customer Favorites",
+            "combo": "Combo Meals - Free Delivery!",
             "south-indian": "South Indian - Idli, Dosa & Traditional Specials",
             "meals": "South Indian Meals (12 onwards)",
             "starters": "Starters - Chinese & Manchurian (1pm onwards)",
@@ -1620,10 +1621,17 @@
 
         // Cart state
         let cart = [];
-        const deliveryCharge = 20.00;
-        const minimumOrderAmount = 50.00; // Minimum order excluding delivery charge
+        const baseDeliveryCharge = 30.00;          // updated to 30
+        const minimumOrderAmount = 100.00;          // updated to 100 (food total)
         let googleMapsLink = "";
         let currentOrderNumber = generateRandomOrderNumber();
+
+        // Helper to check if cart contains any free-delivery combo
+        function hasFreeDeliveryCombo() {
+            return cart.some(item => 
+                item.name === "Tiffin Combo 99" || item.name === "North Meal Combo 199"
+            );
+        }
 
         // Function to generate random order number
         function generateRandomOrderNumber() {
@@ -1637,25 +1645,27 @@
             document.getElementById('randomOrderNumber').textContent = currentOrderNumber;
         }
 
-// DOM elements
-const menuItemsContainer = document.getElementById('menuItems');
-const orderItemsContainer = document.getElementById('orderItems');
-const cartCount = document.getElementById('cartCount');
-const subtotalElement = document.getElementById('subtotal');
-const totalAmountElement = document.getElementById('totalAmount');
-const itemsCountElement = document.getElementById('itemsCount');
-const categoryTitleElement = document.getElementById('categoryTitle');
-const categoryItems = document.querySelectorAll('.category-item');
-const customerPhoneInput = document.getElementById('customerPhone');
-const deliveryAddressTextarea = document.getElementById('deliveryAddress');
-const locationDetailsInput = document.getElementById('locationDetails');
-const locateMeButton = document.getElementById('locateMe');
-const placeOrderButton = document.getElementById('placeOrderBtn');
-const cartIcon = document.getElementById('cartIcon');
-const mapLinkContainer = document.getElementById('mapLinkContainer');
-const mapLinkText = document.getElementById('mapLinkText');
-const menuSection = document.getElementById('menuSection');
-const minOrderRequirement = document.getElementById('minOrderRequirement');
+        // DOM elements
+        const menuItemsContainer = document.getElementById('menuItems');
+        const orderItemsContainer = document.getElementById('orderItems');
+        const cartCount = document.getElementById('cartCount');
+        const subtotalElement = document.getElementById('subtotal');
+        const totalAmountElement = document.getElementById('totalAmount');
+        const deliveryChargeElement = document.getElementById('deliveryCharge');
+        const itemsCountElement = document.getElementById('itemsCount');
+        const categoryTitleElement = document.getElementById('categoryTitle');
+        const categoryItems = document.querySelectorAll('.category-item');
+        const customerPhoneInput = document.getElementById('customerPhone');
+        const deliveryAddressTextarea = document.getElementById('deliveryAddress');
+        const locationDetailsInput = document.getElementById('locationDetails');
+        const locateMeButton = document.getElementById('locateMe');
+        const placeOrderButton = document.getElementById('placeOrderBtn');
+        const cartIcon = document.getElementById('cartIcon');
+        const mapLinkContainer = document.getElementById('mapLinkContainer');
+        const mapLinkText = document.getElementById('mapLinkText');
+        const menuSection = document.getElementById('menuSection');
+        const minOrderRequirement = document.getElementById('minOrderRequirement');
+        const deliveryChargeRow = document.getElementById('deliveryChargeRow');
 
         // Add event listener for cart icon to scroll to order panel
         cartIcon.addEventListener('click', function() {
@@ -1670,9 +1680,7 @@ const minOrderRequirement = document.getElementById('minOrderRequirement');
             // Load the initial category (most-rated)
             loadCategory('most-rated');
             updateOrderNumberDisplay();
-            
 
-            
             // Add event listeners to category items
             categoryItems.forEach(item => {
                 item.addEventListener('click', function() {
@@ -1690,68 +1698,67 @@ const minOrderRequirement = document.getElementById('minOrderRequirement');
                 });
             });
             
-// Add event listener for locate me button
-locateMeButton.addEventListener('click', function() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const lat = position.coords.latitude;
-                const lng = position.coords.longitude;
-                
-                // Create Google Maps link
-                googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
-                
-                // Use reverse geocoding to get address from coordinates
-                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const address = data.display_name;
-                        deliveryAddressTextarea.value = address.substring(0, 200);
-                        
-                        // Update map link display
-                        mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-                        mapLinkContainer.style.cursor = "pointer";
-                        mapLinkContainer.onclick = function() {
-                            window.open(googleMapsLink, '_blank');
-                        };
-                    })
-                    .catch(error => {
-                        console.error('Error fetching address:', error);
-                        deliveryAddressTextarea.value = `Near ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-                        mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-                        mapLinkContainer.style.cursor = "pointer";
-                        mapLinkContainer.onclick = function() {
-                            window.open(googleMapsLink, '_blank');
-                        };
-                    });
-            },
-            function(error) {
-                console.error('Error getting location:', error);
-                alert('Unable to retrieve your location. Please enter your address manually.');
-            }
-        );
-    } else {
-        alert('Geolocation is not supported by your browser.');
-    }
-});
+            // Add event listener for locate me button
+            locateMeButton.addEventListener('click', function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            const lat = position.coords.latitude;
+                            const lng = position.coords.longitude;
+                            
+                            // Create Google Maps link
+                            googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+                            
+                            // Use reverse geocoding to get address from coordinates
+                            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const address = data.display_name;
+                                    deliveryAddressTextarea.value = address.substring(0, 200);
+                                    
+                                    // Update map link display
+                                    mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+                                    mapLinkContainer.style.cursor = "pointer";
+                                    mapLinkContainer.onclick = function() {
+                                        window.open(googleMapsLink, '_blank');
+                                    };
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching address:', error);
+                                    deliveryAddressTextarea.value = `Near ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+                                    mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+                                    mapLinkContainer.style.cursor = "pointer";
+                                    mapLinkContainer.onclick = function() {
+                                        window.open(googleMapsLink, '_blank');
+                                    };
+                                });
+                        },
+                        function(error) {
+                            console.error('Error getting location:', error);
+                            alert('Unable to retrieve your location. Please enter your address manually.');
+                        }
+                    );
+                } else {
+                    alert('Geolocation is not supported by your browser.');
+                }
+            });
             
-     // Add event listener for address input to generate Google Maps link
-deliveryAddressTextarea.addEventListener('input', function() {
-    const address = this.value.trim();
-    if (address.length > 5) {
-        // Create Google Maps link for the address
-        googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-        mapLinkText.textContent = `Google Maps Link for entered address`;
-        mapLinkContainer.style.cursor = "pointer";
-        mapLinkContainer.onclick = function() {
-            window.open(googleMapsLink, '_blank');
-        };
-    } else {
-        mapLinkText.textContent = "Google Maps link will appear here after entering address";
-        mapLinkContainer.style.cursor = "default";
-        mapLinkContainer.onclick = null;
-    }
-});
+            // Add event listener for address input to generate Google Maps link
+            deliveryAddressTextarea.addEventListener('input', function() {
+                const address = this.value.trim();
+                if (address.length > 5) {
+                    googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+                    mapLinkText.textContent = `Google Maps Link for entered address`;
+                    mapLinkContainer.style.cursor = "pointer";
+                    mapLinkContainer.onclick = function() {
+                        window.open(googleMapsLink, '_blank');
+                    };
+                } else {
+                    mapLinkText.textContent = "Google Maps link will appear here after entering address";
+                    mapLinkContainer.style.cursor = "default";
+                    mapLinkContainer.onclick = null;
+                }
+            });
             
             // Add event listener for place order button
             placeOrderButton.addEventListener('click', placeOrder);
@@ -1766,13 +1773,20 @@ deliveryAddressTextarea.addEventListener('input', function() {
             categoryTitleElement.textContent = categoryTitles[category];
             itemsCountElement.textContent = `${items.length} items`;
             
-            // Clear the menu items container
             menuItemsContainer.innerHTML = '';
             
-            // Add items to the container
             items.forEach(item => {
                 const menuItemElement = document.createElement('div');
                 menuItemElement.className = 'menu-item';
+                
+                let timingHtml = item.timing ? `<div class="item-timing"><i class="fas fa-clock"></i> ${item.timing}</div>` : '';
+                let badgeHtml = '';
+                if (item.mostRated) {
+                    badgeHtml = '<div class="most-rated-badge"><i class="fas fa-star"></i> Most Rated</div>';
+                } else if (item.freeDelivery) {
+                    badgeHtml = '<div class="free-delivery-badge"><i class="fas fa-truck"></i> Free Delivery</div>';
+                }
+                
                 menuItemElement.innerHTML = `
                     <div class="item-details">
                         <div class="item-header">
@@ -1780,8 +1794,8 @@ deliveryAddressTextarea.addEventListener('input', function() {
                             <div class="item-price">₹${item.price.toFixed(2)}</div>
                         </div>
                         <div class="item-category">${item.category}</div>
-                        ${item.timing ? `<div class="item-timing"><i class="fas fa-clock"></i> ${item.timing}</div>` : ''}
-                        ${item.mostRated ? '<div class="most-rated-badge"><i class="fas fa-star"></i> Most Rated</div>' : ''}
+                        ${timingHtml}
+                        ${badgeHtml}
                         <button class="add-to-cart" data-name="${item.name}" data-price="${item.price}">
                             <i class="fas fa-plus"></i> Add to Cart
                         </button>
@@ -1791,7 +1805,6 @@ deliveryAddressTextarea.addEventListener('input', function() {
                 menuItemsContainer.appendChild(menuItemElement);
             });
             
-            // Add event listeners to add-to-cart buttons
             document.querySelectorAll('.add-to-cart').forEach(button => {
                 button.addEventListener('click', function() {
                     const name = this.getAttribute('data-name');
@@ -1803,55 +1816,56 @@ deliveryAddressTextarea.addEventListener('input', function() {
 
         // Add item to cart
         function addToCart(name, price) {
-            // Check if item already exists in cart
             const existingItemIndex = cart.findIndex(item => item.name === name);
             
             if (existingItemIndex !== -1) {
-                // Item exists, increase quantity
                 cart[existingItemIndex].quantity += 1;
             } else {
-                // Item doesn't exist, add new item
-                cart.push({
-                    name: name,
-                    price: price,
-                    quantity: 1
-                });
+                cart.push({ name, price, quantity: 1 });
             }
             
-            // Update cart UI
             updateCart();
             
-            // Animate cart icon
             cartIcon.classList.add('cart-bounce');
-            setTimeout(() => {
-                cartIcon.classList.remove('cart-bounce');
-            }, 500);
+            setTimeout(() => cartIcon.classList.remove('cart-bounce'), 500);
         }
 
         // Update cart UI
         function updateCart() {
-            // Update cart count
             const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
             cartCount.textContent = totalItems;
             
-            // Calculate subtotal
             const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
             
-            // Update minimum order requirement display
+            // Determine if free delivery applies
+            const freeDelivery = hasFreeDeliveryCombo();
+            const effectiveDelivery = freeDelivery ? 0 : baseDeliveryCharge;
+            
+            // Update delivery charge display
+            deliveryChargeElement.textContent = `₹${effectiveDelivery.toFixed(2)}`;
+            if (freeDelivery) {
+                deliveryChargeRow.classList.add('free');
+                deliveryChargeElement.innerHTML = '₹0.00 <span style="color:#00b894;">(Free)</span>';
+            } else {
+                deliveryChargeRow.classList.remove('free');
+                deliveryChargeElement.textContent = `₹${baseDeliveryCharge.toFixed(2)}`;
+            }
+            
+            // Minimum order requirement (based on subtotal only)
             if (subtotal >= minimumOrderAmount) {
-                minOrderRequirement.innerHTML = `<i class="fas fa-check-circle"></i> Minimum order requirement met!`;
+                minOrderRequirement.innerHTML = `<i class="fas fa-check-circle"></i> Minimum food order met! (₹${subtotal.toFixed(2)} ≥ ₹${minimumOrderAmount})`;
                 minOrderRequirement.classList.add('met');
                 placeOrderButton.disabled = false;
                 placeOrderButton.classList.remove('disabled');
             } else {
                 const amountNeeded = (minimumOrderAmount - subtotal).toFixed(2);
-                minOrderRequirement.innerHTML = `<i class="fas fa-exclamation-circle"></i> Add ₹${amountNeeded} more to reach minimum order (₹${minimumOrderAmount})`;
+                minOrderRequirement.innerHTML = `<i class="fas fa-exclamation-circle"></i> Add food worth ₹${amountNeeded} more to reach minimum ₹${minimumOrderAmount}`;
                 minOrderRequirement.classList.remove('met');
                 placeOrderButton.disabled = true;
                 placeOrderButton.classList.add('disabled');
             }
             
-            // Update order items list
+            // Render order items
             if (cart.length === 0) {
                 orderItemsContainer.innerHTML = `
                     <div class="empty-cart">
@@ -1883,170 +1897,133 @@ deliveryAddressTextarea.addEventListener('input', function() {
                     orderItemsContainer.appendChild(orderItemElement);
                 });
                 
-                // Add event listeners for quantity buttons and remove buttons
-                document.querySelectorAll('.decrease').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const index = parseInt(this.getAttribute('data-index'));
-                        decreaseQuantity(index);
-                    });
-                });
-                
-                document.querySelectorAll('.increase').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const index = parseInt(this.getAttribute('data-index'));
-                        increaseQuantity(index);
-                    });
-                });
-                
-                document.querySelectorAll('.remove-item').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const index = parseInt(this.getAttribute('data-index'));
-                        removeFromCart(index);
-                    });
-                });
+                document.querySelectorAll('.decrease').forEach(btn => btn.addEventListener('click', function() {
+                    decreaseQuantity(parseInt(this.getAttribute('data-index')));
+                }));
+                document.querySelectorAll('.increase').forEach(btn => btn.addEventListener('click', function() {
+                    increaseQuantity(parseInt(this.getAttribute('data-index')));
+                }));
+                document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', function() {
+                    removeFromCart(parseInt(this.getAttribute('data-index')));
+                }));
             }
             
             // Update totals
-            updateTotals();
-        }
-
-        // Update cart totals
-        function updateTotals() {
-            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            const total = subtotal + deliveryCharge;
-            
+            const total = subtotal + effectiveDelivery;
             subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
             totalAmountElement.textContent = `₹${total.toFixed(2)}`;
         }
 
-        // Increase item quantity
         function increaseQuantity(index) {
             cart[index].quantity += 1;
             updateCart();
         }
 
-        // Decrease item quantity
         function decreaseQuantity(index) {
             if (cart[index].quantity > 1) {
                 cart[index].quantity -= 1;
             } else {
-                // Remove item if quantity becomes 0
                 cart.splice(index, 1);
             }
             updateCart();
         }
 
-        // Remove item from cart
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCart();
         }
 
-// Place order via WhatsApp
-function placeOrder() {
-    if (cart.length === 0) {
-        alert('Your cart is empty. Please add items before placing an order.');
-        return;
-    }
-    
-    const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    
-    // Check minimum order requirement
-    if (subtotal < minimumOrderAmount) {
-        alert(`Minimum order amount is ₹${minimumOrderAmount} (excluding delivery charge). Please add more items to your cart.`);
-        return;
-    }
-    
-    // Get customer details
-    const phone = customerPhoneInput.value.trim();
-    const address = deliveryAddressTextarea.value.trim();
-    const locationDetails = locationDetailsInput.value.trim();
-    
-    // Validation
-    if (!phone) {
-        alert('Please enter your phone number.');
-        customerPhoneInput.focus();
-        return;
-    }
-    
-    if (!/^\d{10}$/.test(phone)) {
-        alert('Please enter a valid 10-digit phone number.');
-        customerPhoneInput.focus();
-        return;
-    }
-    
-    if (!address) {
-        alert('Please enter your delivery address.');
-        deliveryAddressTextarea.focus();
-        return;
-    }
-    
-    if (address.length < 10) {
-        alert('Please enter a complete delivery address with house number, street, and area.');
-        deliveryAddressTextarea.focus();
-        return;
-    }
-    
-    if (!googleMapsLink) {
-        alert('Please wait for Google Maps link to generate or enter a valid address.');
-        return;
-    }
-    
-    // Prepare order details
-    const total = subtotal + deliveryCharge;
-    
-    let orderText = `*Hotel Harsha - Food Order*\n\n`;
-    orderText += `*Order Number:* ${currentOrderNumber}\n\n`;
-    orderText += `*Customer Details:*\n`;
-    orderText += `Phone: ${phone}\n`;
-    orderText += `Address: ${address}\n`;
-    if (locationDetails) orderText += `Additional Details: ${locationDetails}\n`;
-    orderText += `Google Maps: ${googleMapsLink}\n\n`;
-    orderText += `*Order Items:*\n`;
-    
-    cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
-    });
-    
-    orderText += `\n*Order Summary:*\n`;
-    orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
-    orderText += `Delivery Charge: ₹${deliveryCharge.toFixed(2)}\n`;
-    orderText += `*Total: ₹${total.toFixed(2)}*\n`;
-    orderText += `Minimum order requirement: ₹${minimumOrderAmount} (excluding delivery)\n`;
-    orderText += `Order Points: 1HH point earned(1)\n`;
-    orderText += `Order Ref: 1HH\n\n`;
-    orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
-    orderText += `Please confirm this order. Thank you!`;
-    
-    // Encode the message for WhatsApp URL
-    const encodedMessage = encodeURIComponent(orderText);
-    const phoneNumber = '97313 43143';
-    const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
-    
-    // Generate new order number for next order
-    currentOrderNumber = generateRandomOrderNumber();
-    updateOrderNumberDisplay();
-    
-    // Clear the cart after order
-    cart = [];
-    updateCart();
-    
-    // Reset customer details
-    customerPhoneInput.value = '';
-    deliveryAddressTextarea.value = '';
-    locationDetailsInput.value = '';
-    mapLinkText.textContent = "Google Maps link will appear here after entering address";
-    mapLinkContainer.style.cursor = "default";
-    mapLinkContainer.onclick = null;
-    
-    // Show success message
-    alert(`Order placed successfully! Your order number is ${currentOrderNumber}. Opening WhatsApp...`);
-    
-    // Open WhatsApp in a new tab
-    window.open(whatsappURL, '_blank');
-}
+        // Place order via WhatsApp
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before placing an order.');
+                return;
+            }
+            
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            
+            if (subtotal < minimumOrderAmount) {
+                alert(`Minimum food order is ₹${minimumOrderAmount}. Please add more items.`);
+                return;
+            }
+            
+            const phone = customerPhoneInput.value.trim();
+            const address = deliveryAddressTextarea.value.trim();
+            const locationDetails = locationDetailsInput.value.trim();
+            
+            if (!phone) {
+                alert('Please enter your phone number.');
+                customerPhoneInput.focus();
+                return;
+            }
+            if (!/^\d{10}$/.test(phone)) {
+                alert('Please enter a valid 10-digit phone number.');
+                customerPhoneInput.focus();
+                return;
+            }
+            if (!address) {
+                alert('Please enter your delivery address.');
+                deliveryAddressTextarea.focus();
+                return;
+            }
+            if (address.length < 10) {
+                alert('Please enter a complete delivery address.');
+                deliveryAddressTextarea.focus();
+                return;
+            }
+            if (!googleMapsLink) {
+                alert('Please wait for Google Maps link to generate or enter a valid address.');
+                return;
+            }
+            
+            const freeDelivery = hasFreeDeliveryCombo();
+            const effectiveDelivery = freeDelivery ? 0 : baseDeliveryCharge;
+            const total = subtotal + effectiveDelivery;
+            
+            let orderText = `*Hotel Harsha - Food Order*\n\n`;
+            orderText += `*Order Number:* ${currentOrderNumber}\n\n`;
+            orderText += `*Customer Details:*\n`;
+            orderText += `Phone: ${phone}\n`;
+            orderText += `Address: ${address}\n`;
+            if (locationDetails) orderText += `Additional Details: ${locationDetails}\n`;
+            orderText += `Google Maps: ${googleMapsLink}\n\n`;
+            orderText += `*Order Items:*\n`;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
+            });
+            
+            orderText += `\n*Order Summary:*\n`;
+            orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
+            orderText += `Delivery Charge: ₹${effectiveDelivery.toFixed(2)} ${freeDelivery ? '(Free Combo)' : ''}\n`;
+            orderText += `*Total: ₹${total.toFixed(2)}*\n`;
+            orderText += `Minimum food order: ₹${minimumOrderAmount}\n`;
+            orderText += `Order Points: 1HH point earned\n`;
+            orderText += `Order Ref: 1HH\n\n`;
+            orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
+            orderText += `Please confirm this order. Thank you!`;
+            
+            const encodedMessage = encodeURIComponent(orderText);
+            const phoneNumber = '9353316903';  // updated number
+            const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
+            
+            currentOrderNumber = generateRandomOrderNumber();
+            updateOrderNumberDisplay();
+            
+            cart = [];
+            updateCart();
+            
+            customerPhoneInput.value = '';
+            deliveryAddressTextarea.value = '';
+            locationDetailsInput.value = '';
+            mapLinkText.textContent = "Google Maps link will appear here after entering address";
+            mapLinkContainer.style.cursor = "default";
+            mapLinkContainer.onclick = null;
+            
+            alert(`Order placed successfully! Your order number is ${currentOrderNumber}. Opening WhatsApp...`);
+            window.open(whatsappURL, '_blank');
+        }
     </script>
-    
 </body>
     </html>
