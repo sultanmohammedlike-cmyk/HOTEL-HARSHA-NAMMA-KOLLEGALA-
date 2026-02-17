@@ -990,6 +990,36 @@
             margin-left: 5px;
             border: 2px solid #ffcccc;
         }
+
+        /* New UPI Payment Button */
+        .upi-payment-btn {
+            width: 100%;
+            background: linear-gradient(to right, #6c5ce7, #a463f5);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
+        }
+
+        .upi-payment-btn:hover {
+            background: linear-gradient(to right, #5b4bc4, #8c4ed9);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(108, 92, 231, 0.3);
+        }
+
+        .upi-payment-btn i {
+            font-size: 22px;
+        }
         
         /* Footer */
         footer {
@@ -1401,6 +1431,11 @@
             <button class="place-order-btn" id="placeOrderBtn" disabled>
                 <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
             </button>
+
+            <!-- New UPI Payment Button -->
+            <button class="upi-payment-btn" id="upiPaymentBtn">
+                <i class="fas fa-mobile-alt"></i> Pay Online via UPI (₹<span id="upiAmount">0.00</span>)
+            </button>
             
             <!-- QR Code Section -->
             <div class="qr-section">
@@ -1452,7 +1487,7 @@
                 
                 <div class="footer-section">
                     <h3>Delivery Info</h3>
-                    <p>We deliver within 2km radius. Delivery charge: ₹30 (Free for combo meals). Delivery time: 15-30 minutes.</p>
+                    <p>We deliver within 2km radius. Delivery charge: ₹30 (Free for combo specials). Delivery time: 15-30 minutes.</p>
                     <p>Payment: Cash on delivery or UPI</p>
                     <p>Minimum food order: ₹99 (delivery extra if applicable)</p>
                     <p>50HH point=10% discount, AND IMAGES ABOVE ARE creative visualisation</p>
@@ -1623,6 +1658,7 @@
         let cart = [];
         const baseDeliveryCharge = 30.00;          // updated to 30
         const minimumOrderAmount = 99.00;          // updated to 99 (food total)
+        const upiId = "hotelharsha@okhdfcbank";     // Replace with actual UPI ID
         let googleMapsLink = "";
         let currentOrderNumber = generateRandomOrderNumber();
 
@@ -1660,6 +1696,8 @@
         const locationDetailsInput = document.getElementById('locationDetails');
         const locateMeButton = document.getElementById('locateMe');
         const placeOrderButton = document.getElementById('placeOrderBtn');
+        const upiPaymentBtn = document.getElementById('upiPaymentBtn');
+        const upiAmountSpan = document.getElementById('upiAmount');
         const cartIcon = document.getElementById('cartIcon');
         const mapLinkContainer = document.getElementById('mapLinkContainer');
         const mapLinkText = document.getElementById('mapLinkText');
@@ -1762,6 +1800,30 @@
             
             // Add event listener for place order button
             placeOrderButton.addEventListener('click', placeOrder);
+            
+            // Add event listener for UPI payment button
+            upiPaymentBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Your cart is empty. Please add items before payment.');
+                    return;
+                }
+                
+                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                if (subtotal < minimumOrderAmount) {
+                    alert(`Minimum food order is ₹${minimumOrderAmount}. Please add more items.`);
+                    return;
+                }
+                
+                const freeDelivery = hasFreeDeliveryCombo();
+                const effectiveDelivery = freeDelivery ? 0 : baseDeliveryCharge;
+                const total = subtotal + effectiveDelivery;
+                
+                // Create UPI intent URL
+                const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${total.toFixed(2)}&tn=Order%20${currentOrderNumber}&cu=INR`;
+                
+                // Open UPI app
+                window.location.href = upiUrl;
+            });
             
             // Initialize cart
             updateCart();
@@ -1912,6 +1974,7 @@
             const total = subtotal + effectiveDelivery;
             subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
             totalAmountElement.textContent = `₹${total.toFixed(2)}`;
+            upiAmountSpan.textContent = total.toFixed(2);
         }
 
         function increaseQuantity(index) {
