@@ -2105,8 +2105,7 @@
             mapLinkContainer.style.cursor = "default";
             mapLinkContainer.onclick = null;
             
-            alert(`Order placed successfully! Your order number is ${currentOrderNumber}. Opening WhatsApp...`);
-            window.open(whatsappURL, '_blank');
+            window.location.href = whatsappURL;
         }
     </script>
 </body>
