@@ -664,7 +664,7 @@
         function buildUpiUrl(app, amount) {
             const base = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
             if (app === 'gpay') return `tez://upi/pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
-            if (app === 'phonepe') return `phonepe://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
+            if (app === 'phonepe') return `intent://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR#Intent;scheme=phonepe;package=com.phonepe.app;end`;
             if (app === 'paytm') return `paytmmp://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
             return base;
         }
