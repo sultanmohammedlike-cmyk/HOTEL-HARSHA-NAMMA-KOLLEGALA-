@@ -7,13 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* styles remain exactly as in original – no changes needed for styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-green: #00b894;
             --dark-green: #00a085;
@@ -28,1238 +22,264 @@
             --radius: 16px;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-gray);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-        
-        /* Header with large logo */
-        header {
-            background-color: var(--white);
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .logo {
-            height: 80px;
-            width: auto;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-            border: 3px solid var(--primary-green);
-        }
-        
-        .hotel-info {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .hotel-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
-            font-weight: 900;
-            color: var(--primary-green);
-            letter-spacing: 1px;
-            line-height: 1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hotel-name span {
-            color: var(--dark-gray);
-            position: relative;
-        }
-        
-        .hotel-name span::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            background: var(--primary-green);
-            bottom: -5px;
-            left: 0;
-            border-radius: 2px;
-        }
-        
-        .slogan {
-            font-size: 20px;
-            color: var(--dark-gray);
-            margin-top: 8px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .slogan::before {
-            content: '';
-            width: 40px;
-            height: 3px;
-            background: var(--primary-green);
-            display: block;
-        }
-        
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-        
-        .delivery-info {
-            background: var(--light-green);
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            color: var(--dark-green);
-            box-shadow: 0 4px 10px rgba(0, 184, 148, 0.1);
-        }
-        
-        .delivery-info i {
-            font-size: 18px;
-        }
-        
-        .cart-icon {
-            position: relative;
-            font-size: 26px;
-            color: var(--primary-green);
-            cursor: pointer;
-            background: var(--light-green);
-            width: 60px;
-            height: 60px;
-            display: flex;
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light-gray); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 25px; }
+        header { background-color: var(--white); padding: 15px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 20px; }
+        .logo { height: 80px; width: auto; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); object-fit: cover; border: 3px solid var(--primary-green); }
+        .hotel-info { display: flex; flex-direction: column; }
+        .hotel-name { font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 900; color: var(--primary-green); letter-spacing: 1px; line-height: 1; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .hotel-name span { color: var(--dark-gray); position: relative; }
+        .hotel-name span::after { content: ''; position: absolute; width: 100%; height: 4px; background: var(--primary-green); bottom: -5px; left: 0; border-radius: 2px; }
+        .slogan { font-size: 20px; color: var(--dark-gray); margin-top: 8px; font-weight: 600; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
+        .slogan::before { content: ''; width: 40px; height: 3px; background: var(--primary-green); display: block; }
+        .header-right { display: flex; align-items: center; gap: 25px; }
+        .delivery-info { background: var(--light-green); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--dark-green); box-shadow: 0 4px 10px rgba(0,184,148,0.1); }
+        .delivery-info i { font-size: 18px; }
+        .cart-icon { position: relative; font-size: 26px; color: var(--primary-green); cursor: pointer; background: var(--light-green); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,184,148,0.1); transition: var(--transition); }
+        .cart-icon:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,184,148,0.2); }
+        .cart-count { position: absolute; top: -5px; right: -5px; background-color: #ff6b6b; color: white; border-radius: 50%; width: 28px; height: 28px; font-size: 14px; display: flex; align-items: center; justify-content: center; font-weight: 700; border: 3px solid var(--white); box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+        .timing-banner { background-color: var(--primary-green); color: white; padding: 12px 0; text-align: center; font-weight: 600; font-size: 18px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,184,148,0.2); border-bottom: 2px solid var(--dark-green); }
+        .timing-banner i { margin-right: 10px; font-size: 20px; }
+        .catering-banner { background: linear-gradient(to right, #ff6b6b, #ff8e53); color: white; padding: 18px 0; margin-top: 15px; border-radius: var(--radius); box-shadow: 0 5px 15px rgba(255,107,107,0.2); animation: bannerPulse 3s infinite; }
+        .catering-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .catering-text { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 15px; flex: 1; }
+        .catering-text i { font-size: 24px; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 50%; }
+        .catering-phone { background: white; color: #ff6b6b; padding: 10px 25px; border-radius: 50px; font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: var(--transition); }
+        .catering-phone:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
+        @keyframes bannerPulse { 0% { box-shadow: 0 5px 15px rgba(255,107,107,0.2); } 50% { box-shadow: 0 5px 20px rgba(255,107,107,0.4); } 100% { box-shadow: 0 5px 15px rgba(255,107,107,0.2); } }
+        .category-list { display: flex; flex-direction: column; gap: 20px; }
+        .main-content { display: flex; flex-direction: column; margin-top: 30px; gap: 30px; position: relative; }
+        .categories-sidebar { width: 100%; background-color: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 25px; height: fit-content; }
+        .categories-sidebar h2 { font-size: 26px; margin-bottom: 25px; color: var(--dark-gray); position: relative; padding-bottom: 15px; }
+        .categories-sidebar h2::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--primary-green); bottom: 0; left: 0; border-radius: 2px; }
+        .category-item { height: 140px; flex: 1; min-width: 280px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: var(--transition); position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .category-item:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+        .category-item.active { box-shadow: 0 0 0 3px var(--primary-green), var(--shadow-hover); }
+        .category-image { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .category-item:hover .category-image { transform: scale(1.05); }
+        .category-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; padding: 20px; }
+        .category-overlay h3 { font-size: 22px; font-weight: 700; margin-bottom: 5px; }
+        .category-overlay p { font-size: 14px; opacity: 0.9; }
+        .category-item.active .category-overlay { background: linear-gradient(to top, rgba(0,184,148,0.9), rgba(0,184,148,0.7)); }
+        .category-item.most-rated-category { border: 2px solid #ff6b6b; }
+        .category-item.most-rated-category .category-overlay { background: linear-gradient(to top, rgba(255,107,107,0.9), rgba(255,107,107,0.7)); }
+        .category-item.most-rated-category.active .category-overlay { background: linear-gradient(to top, rgba(255,107,107,0.9), rgba(255,107,107,0.7)); }
+        .most-rated-badge { position: absolute; top: 15px; right: 15px; background: linear-gradient(to right, #ff6b6b, #ff8e53); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 5px; z-index: 2; box-shadow: 0 4px 10px rgba(255,107,107,0.3); animation: pulse 2s infinite; }
+        .most-rated-badge i { font-size: 10px; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .menu-section { width: 100%; background-color: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--medium-gray); }
+        .section-header h2 { font-size: 32px; color: var(--dark-gray); font-weight: 800; }
+        .items-count { background-color: var(--light-green); color: var(--dark-green); padding: 8px 20px; border-radius: 50px; font-size: 16px; font-weight: 600; }
+        .menu-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 25px; }
+        .menu-item { border: 1px solid var(--medium-gray); border-radius: 12px; overflow: hidden; transition: var(--transition); background: var(--white); display: flex; flex-direction: column; position: relative; }
+        .menu-item:hover { box-shadow: var(--shadow-hover); border-color: var(--primary-green); transform: translateY(-8px); }
+        .item-details { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .item-details h3 { font-size: 22px; font-weight: 700; color: var(--dark-gray); flex: 1; line-height: 1.3; }
+        .item-price { font-size: 26px; font-weight: 800; color: var(--primary-green); margin-left: 15px; }
+        .item-category { font-size: 14px; color: var(--dark-green); background-color: var(--light-green); padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px; font-weight: 600; }
+        .item-timing { display: inline-block; font-size: 13px; color: #ff6b6b; background-color: #fff5f5; padding: 4px 10px; border-radius: 15px; margin-bottom: 15px; font-weight: 600; border: 1px solid #ffcccc; }
+        .free-delivery-badge { display: inline-block; font-size: 13px; color: #00b894; background-color: #e8f6f3; padding: 4px 10px; border-radius: 15px; margin-bottom: 15px; font-weight: 700; border: 1px solid #00b894; }
+        .add-to-cart { background: linear-gradient(to right, var(--primary-green), var(--dark-green)); color: white; border: none; padding: 15px; border-radius: 10px; font-size: 17px; font-weight: 700; cursor: pointer; transition: var(--transition); margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 12px; letter-spacing: 0.5px; }
+        .add-to-cart:hover { background: linear-gradient(to right, var(--dark-green), #00997a); box-shadow: 0 8px 20px rgba(0,184,148,0.3); transform: translateY(-3px); }
+        .order-panel { width: 100%; background-color: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px; height: fit-content; order: 3; }
+        .order-panel h2 { font-size: 26px; margin-bottom: 25px; color: var(--dark-gray); display: flex; align-items: center; gap: 12px; position: relative; padding-bottom: 15px; }
+        .order-panel h2::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--primary-green); bottom: 0; left: 0; border-radius: 2px; }
+        .order-panel h2 i { color: var(--primary-green); }
+        .min-order-requirement { background-color: #fff5f5; border: 2px dashed #ff6b6b; border-radius: 10px; padding: 15px; margin-bottom: 20px; text-align: center; font-weight: 600; color: #ff6b6b; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .min-order-requirement i { font-size: 18px; }
+        .min-order-requirement.met { background-color: #e8f6f3; border-color: #00b894; color: #00b894; }
+        .order-items { max-height: 300px; overflow-y: auto; margin-bottom: 20px; border-bottom: 1px solid var(--medium-gray); padding-bottom: 20px; }
+        .order-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed var(--medium-gray); }
+        .order-item:last-child { border-bottom: none; }
+        .item-name { font-weight: 600; flex: 1; font-size: 16px; }
+        .item-quantity { display: flex; align-items: center; gap: 10px; margin: 0 15px; }
+        .quantity-btn { width: 28px; height: 28px; border-radius: 50%; background-color: var(--light-green); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: bold; color: var(--dark-green); transition: var(--transition); }
+        .quantity-btn:hover { background-color: var(--primary-green); color: white; }
+        .quantity { font-weight: 700; min-width: 30px; text-align: center; font-size: 16px; }
+        .item-total { font-weight: 700; color: var(--primary-green); min-width: 80px; text-align: right; font-size: 17px; }
+        .remove-item { color: #ff6b6b; background: none; border: none; cursor: pointer; font-size: 18px; margin-left: 10px; transition: var(--transition); }
+        .remove-item:hover { transform: scale(1.2); }
+        .order-summary { margin-bottom: 25px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 17px; }
+        .summary-row.total { font-size: 26px; font-weight: 800; color: var(--dark-gray); padding-top: 20px; border-top: 3px solid var(--medium-gray); margin-top: 15px; }
+        .delivery-charge { color: #ff6b6b; font-weight: 600; }
+        .delivery-charge.free { color: #00b894; }
+        .location-section { margin-bottom: 25px; }
+        .location-section h3 { font-size: 20px; margin-bottom: 15px; color: var(--dark-gray); display: flex; align-items: center; gap: 10px; }
+        .location-input { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .location-input input { flex-grow: 1; padding: 16px; border: 2px solid var(--medium-gray); border-radius: 10px; font-size: 16px; transition: var(--transition); }
+        .location-input input:focus { outline: none; border-color: var(--primary-green); box-shadow: 0 0 0 3px rgba(0,184,148,0.1); }
+        .location-input button { background-color: var(--primary-green); color: white; border: none; border-radius: 10px; padding: 16px 22px; cursor: pointer; font-weight: 700; transition: var(--transition); }
+        .location-input button:hover { background-color: var(--dark-green); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,184,148,0.2); }
+        .map-link-container { background-color: var(--light-green); border-radius: 10px; padding: 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; transition: var(--transition); cursor: pointer; }
+        .map-link-container:hover { background-color: #d1f2eb; transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,184,148,0.1); }
+        .map-link-container i { color: #4285F4; font-size: 24px; flex-shrink: 0; }
+        .map-link-container span { flex: 1; font-size: 15px; color: var(--dark-gray); font-weight: 500; }
+        .place-order-btn { width: 100%; background: linear-gradient(to right, var(--primary-green), var(--dark-green)); color: white; border: none; padding: 20px; border-radius: 12px; font-size: 20px; font-weight: 800; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 15px; letter-spacing: 0.5px; box-shadow: 0 8px 20px rgba(0,184,148,0.2); }
+        .place-order-btn:hover { background: linear-gradient(to right, var(--dark-green), #00997a); box-shadow: 0 12px 25px rgba(0,184,148,0.3); transform: translateY(-5px); }
+        .place-order-btn.disabled { background: linear-gradient(to right, #cccccc, #aaaaaa); cursor: not-allowed; opacity: 0.7; transform: none !important; box-shadow: none !important; }
+        .place-order-btn i { font-size: 24px; }
+        .customer-detail-input { margin-bottom: 20px; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 8px; color: var(--dark-gray); }
+        .input-group label i { color: var(--primary-green); width: 20px; }
+        .input-group input, .input-group textarea { width: 100%; padding: 16px; border: 2px solid var(--medium-gray); border-radius: 10px; font-size: 16px; font-family: 'Poppins', sans-serif; transition: var(--transition); background-color: white; }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--primary-green); box-shadow: 0 0 0 3px rgba(0,184,148,0.1); }
+        .input-group textarea { resize: vertical; min-height: 80px; }
+        .phone-note { font-size: 14px; color: #666; margin-top: 8px; font-style: italic; text-align: center; background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 3px solid var(--primary-green); }
+        .location-options { margin-top: 20px; }
+        .qr-section { margin-top: 25px; padding-top: 25px; border-top: 2px dashed var(--medium-gray); text-align: center; }
+        .qr-section h3 { font-size: 20px; margin-bottom: 15px; color: var(--dark-gray); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .qr-code { max-width: 200px; margin: 0 auto 15px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border: 3px solid var(--primary-green); }
+        .qr-note { font-size: 14px; color: #666; margin-top: 10px; line-height: 1.5; }
+        .qr-note strong { color: var(--dark-green); font-weight: 700; }
+        .order-ref-note { background-color: var(--light-green); border-radius: 8px; padding: 12px; margin-top: 15px; font-size: 15px; color: var(--dark-gray); border-left: 4px solid var(--primary-green); }
+        .order-ref-note strong { color: var(--dark-green); font-weight: 800; }
+        .random-order-number { font-weight: 900; color: #ff6b6b; background-color: #fff5f5; padding: 4px 12px; border-radius: 6px; display: inline-block; margin-left: 5px; border: 2px solid #ffcccc; }
+        .upi-payment-btn { width: 100%; background: linear-gradient(to right, #6c5ce7, #a463f5); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 15px; box-shadow: 0 8px 20px rgba(108,92,231,0.2); }
+        .upi-payment-btn:hover { background: linear-gradient(to right, #5b4bc4, #8c4ed9); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(108,92,231,0.3); }
+        .upi-payment-btn i { font-size: 22px; }
+        footer { background-color: var(--dark-gray); color: white; padding: 50px 0 30px; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-section { flex: 1; min-width: 250px; }
+        .footer-section h3 { font-size: 24px; margin-bottom: 25px; color: var(--primary-green); position: relative; padding-bottom: 10px; }
+        .footer-section h3::after { content: ''; position: absolute; width: 50px; height: 3px; background: var(--primary-green); bottom: 0; left: 0; border-radius: 2px; }
+        .contact-info { display: flex; flex-direction: column; gap: 15px; }
+        .contact-info div { display: flex; align-items: center; gap: 12px; }
+        .contact-info i { color: var(--primary-green); font-size: 18px; width: 24px; }
+        .whatsapp-btn { display: inline-flex; align-items: center; gap: 10px; background-color: #25D366; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; margin-top: 15px; transition: var(--transition); }
+        .whatsapp-btn:hover { background-color: #128C7E; transform: translateY(-3px); box-shadow: 0 8px 15px rgba(37,211,102,0.2); }
+        .copyright { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid #495057; color: #adb5bd; font-size: 15px; }
+        @media (max-width: 1200px) { .main-content { flex-wrap: wrap; } .category-list { flex-direction: row; flex-wrap: wrap; } .category-item { flex: 1; min-width: 280px; } .menu-items { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }
+        @media (max-width: 992px) { .header-container { flex-direction: column; gap: 20px; } .logo-area { align-items: center; text-align: center; } .slogan::before { display: none; } .catering-content { flex-direction: column; text-align: center; gap: 15px; } .menu-items { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } .category-item { min-width: 100%; } }
+        @media (max-width: 768px) { .hotel-name { font-size: 36px; } .slogan { font-size: 18px; } .catering-text { font-size: 16px; flex-direction: column; gap: 10px; } .category-list { flex-direction: column; } .category-item { min-width: 100%; } .menu-items { grid-template-columns: 1fr; } .item-header { flex-direction: column; gap: 10px; } .item-price { margin-left: 0; align-self: flex-start; } .footer-content { flex-direction: column; gap: 30px; } }
+        @keyframes cartBounce { 0% { transform: scale(1); } 50% { transform: scale(1.3); } 100% { transform: scale(1); } }
+        .cart-bounce { animation: cartBounce 0.5s ease; }
+        .empty-cart { text-align: center; padding: 50px 20px; color: #adb5bd; }
+        .empty-cart i { font-size: 70px; margin-bottom: 20px; color: #dee2e6; opacity: 0.7; }
+        .empty-cart p { font-size: 18px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .menu-item, .category-item, .order-panel, .categories-sidebar, .menu-section { animation: fadeIn 0.5s ease forwards; }
+        html { scroll-behavior: smooth; }
+
+        /* ======= UPI PAYMENT MODAL ======= */
+        .upi-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 9999;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0, 184, 148, 0.1);
-            transition: var(--transition);
+            padding: 20px;
         }
-        
-        .cart-icon:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: #ff6b6b;
-            color: white;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            border: 3px solid var(--white);
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* NEW TIMING BANNER (7am - 7pm) */
-        .timing-banner {
-            background-color: var(--primary-green);
-            color: white;
-            padding: 12px 0;
-            text-align: center;
-            font-weight: 600;
-            font-size: 18px;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0, 184, 148, 0.2);
-            border-bottom: 2px solid var(--dark-green);
-        }
-        .timing-banner i {
-            margin-right: 10px;
-            font-size: 20px;
-        }
-        
-        /* Catering Services Banner */
-        .catering-banner {
-            background: linear-gradient(to right, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 18px 0;
-            margin-top: 15px;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
-            animation: bannerPulse 3s infinite;
-        }
-        
-        .catering-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .catering-text {
-            font-size: 18px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
-        }
-        
-        .catering-text i {
-            font-size: 24px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px;
-            border-radius: 50%;
-        }
-        
-        .catering-phone {
+        .upi-modal-overlay.active { display: flex; }
+        .upi-modal {
             background: white;
-            color: #ff6b6b;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        .catering-phone:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-        }
-        
-        @keyframes bannerPulse {
-            0% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2); }
-            50% { box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4); }
-            100% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2); }
-        }
-        
-        .category-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        /* Main Content - UPDATED LAYOUT */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            margin-top: 30px;
-            gap: 30px;
-            position: relative;
-        }
-        
-        /* Categories with images - Now full width */
-        .categories-sidebar {
-            width: 100%;
-            background-color: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 25px;
-            height: fit-content;
-        }
-        
-        .categories-sidebar h2 {
-            font-size: 26px;
-            margin-bottom: 25px;
-            color: var(--dark-gray);
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .categories-sidebar h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-green);
-            bottom: 0;
-            left: 0;
-            border-radius: 2px;
-        }
-        
-        .category-item {
-            height: 140px;
-            flex: 1;
-            min-width: 280px;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-        
-        .category-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .category-item.active {
-            box-shadow: 0 0 0 3px var(--primary-green), var(--shadow-hover);
-        }
-        
-        .category-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .category-item:hover .category-image {
-            transform: scale(1.05);
-        }
-        
-        .category-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 20px;
-        }
-        
-        .category-overlay h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .category-overlay p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .category-item.active .category-overlay {
-            background: linear-gradient(to top, rgba(0, 184, 148, 0.9), rgba(0, 184, 148, 0.7));
-        }
-        
-        /* Most Rated Category Item */
-        .category-item.most-rated-category {
-            border: 2px solid #ff6b6b;
-        }
-
-        .category-item.most-rated-category .category-overlay {
-            background: linear-gradient(to top, rgba(255, 107, 107, 0.9), rgba(255, 107, 107, 0.7));
-        }
-
-        .category-item.most-rated-category.active .category-overlay {
-            background: linear-gradient(to top, rgba(255, 107, 107, 0.9), rgba(255, 107, 107, 0.7));
-        }
-
-        .most-rated-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(to right, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            z-index: 2;
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        .most-rated-badge i {
-            font-size: 10px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Menu Items Section */
-        .menu-section {
+            padding: 35px 28px 28px;
+            max-width: 400px;
             width: 100%;
-            background-color: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 30px;
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--medium-gray);
-        }
-        
-        .section-header h2 {
-            font-size: 32px;
-            color: var(--dark-gray);
-            font-weight: 800;
-        }
-        
-        .items-count {
-            background-color: var(--light-green);
-            color: var(--dark-green);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-        }
-        
-        .menu-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-            gap: 25px;
-        }
-        
-        .menu-item {
-            border: 1px solid var(--medium-gray);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-            background: var(--white);
-            display: flex;
-            flex-direction: column;
+            text-align: center;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.35);
             position: relative;
-        }
-        
-        .menu-item:hover {
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-green);
-            transform: translateY(-8px);
-        }
-        
-        .item-details {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .item-details h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--dark-gray);
-            flex: 1;
-            line-height: 1.3;
-        }
-        
-        .item-price {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-left: 15px;
-        }
-        
-        .item-category {
-            font-size: 14px;
-            color: var(--dark-green);
-            background-color: var(--light-green);
-            padding: 5px 12px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        /* Timing indicator for specific items */
-        .item-timing {
-            display: inline-block;
-            font-size: 13px;
-            color: #ff6b6b;
-            background-color: #fff5f5;
-            padding: 4px 10px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            font-weight: 600;
-            border: 1px solid #ffcccc;
-        }
-        
-        /* free delivery badge */
-        .free-delivery-badge {
-            display: inline-block;
-            font-size: 13px;
-            color: #00b894;
-            background-color: #e8f6f3;
-            padding: 4px 10px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            border: 1px solid #00b894;
-        }
-        
-        .add-to-cart {
-            background: linear-gradient(to right, var(--primary-green), var(--dark-green));
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            letter-spacing: 0.5px;
-        }
-        
-        .add-to-cart:hover {
-            background: linear-gradient(to right, var(--dark-green), #00997a);
-            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        /* Order Summary Panel - NOW AT THE BOTTOM */
-        .order-panel {
-            width: 100%;
-            background-color: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 30px;
-            height: fit-content;
-            order: 3;
-        }
-        
-        .order-panel h2 {
-            font-size: 26px;
-            margin-bottom: 25px;
-            color: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .order-panel h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-green);
-            bottom: 0;
-            left: 0;
-            border-radius: 2px;
-        }
-        
-        .order-panel h2 i {
-            color: var(--primary-green);
-        }
-        
-        .min-order-requirement {
-            background-color: #fff5f5;
-            border: 2px dashed #ff6b6b;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 600;
-            color: #ff6b6b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .min-order-requirement i {
-            font-size: 18px;
-        }
-        
-        .min-order-requirement.met {
-            background-color: #e8f6f3;
-            border-color: #00b894;
-            color: #00b894;
-        }
-        
-        .order-items {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--medium-gray);
-            padding-bottom: 20px;
-        }
-        
-        .order-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px dashed var(--medium-gray);
-        }
-        
-        .order-item:last-child {
-            border-bottom: none;
-        }
-        
-        .item-name {
-            font-weight: 600;
-            flex: 1;
-            font-size: 16px;
-        }
-        
-        .item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0 15px;
-        }
-        
-        .quantity-btn {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background-color: var(--light-green);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: bold;
-            color: var(--dark-green);
-            transition: var(--transition);
-        }
-        
-        .quantity-btn:hover {
-            background-color: var(--primary-green);
-            color: white;
-        }
-        
-        .quantity {
-            font-weight: 700;
-            min-width: 30px;
-            text-align: center;
-            font-size: 16px;
-        }
-        
-        .item-total {
-            font-weight: 700;
-            color: var(--primary-green);
-            min-width: 80px;
-            text-align: right;
-            font-size: 17px;
-        }
-        
-        .remove-item {
-            color: #ff6b6b;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            margin-left: 10px;
-            transition: var(--transition);
-        }
-        
-        .remove-item:hover {
-            transform: scale(1.2);
-        }
-        
-        .order-summary {
-            margin-bottom: 25px;
-        }
-        
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 17px;
-        }
-        
-        .summary-row.total {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--dark-gray);
-            padding-top: 20px;
-            border-top: 3px solid var(--medium-gray);
-            margin-top: 15px;
-        }
-        
-        .delivery-charge {
-            color: #ff6b6b;
-            font-weight: 600;
-        }
-        .delivery-charge.free {
-            color: #00b894;
-        }
-        
-        .location-section {
-            margin-bottom: 25px;
-        }
-        
-        .location-section h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .location-input {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .location-input input {
-            flex-grow: 1;
-            padding: 16px;
-            border: 2px solid var(--medium-gray);
-            border-radius: 10px;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-        
-        .location-input input:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
-        }
-        
-        .location-input button {
-            background-color: var(--primary-green);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 16px 22px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-        
-        .location-input button:hover {
-            background-color: var(--dark-green);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
-        }
-        
-        .map-link-container {
-            background-color: var(--light-green);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .map-link-container:hover {
-            background-color: #d1f2eb;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.1);
-        }
-        
-        .map-link-container i {
-            color: #4285F4;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        
-        .map-link-container span {
-            flex: 1;
-            font-size: 15px;
-            color: var(--dark-gray);
-            font-weight: 500;
-        }
-        
-        .place-order-btn {
-            width: 100%;
-            background: linear-gradient(to right, var(--primary-green), var(--dark-green));
-            color: white;
-            border: none;
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 20px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.2);
-        }
-        
-        .place-order-btn:hover {
-            background: linear-gradient(to right, var(--dark-green), #00997a);
-            box-shadow: 0 12px 25px rgba(0, 184, 148, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        .place-order-btn.disabled {
-            background: linear-gradient(to right, #cccccc, #aaaaaa);
-            cursor: not-allowed;
-            opacity: 0.7;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-        
-        .place-order-btn i {
-            font-size: 24px;
-        }
-        
-        /* Customer Details Input Styles */
-        .customer-detail-input {
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark-gray);
-        }
-
-        .input-group label i {
-            color: var(--primary-green);
-            width: 20px;
-        }
-
-        .input-group input,
-        .input-group textarea {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid var(--medium-gray);
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-            background-color: white;
-        }
-
-        .input-group input:focus,
-        .input-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
-        }
-
-        .input-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .phone-note {
-            font-size: 14px;
-            color: #666;
-            margin-top: 8px;
-            font-style: italic;
-            text-align: center;
-            background-color: #f8f9fa;
-            padding: 8px;
-            border-radius: 6px;
-            border-left: 3px solid var(--primary-green);
-        }
-
-        .location-options {
-            margin-top: 20px;
-        }
-
-        .location-input {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .location-input input {
-            flex-grow: 1;
-            padding: 16px;
-            border: 2px solid var(--medium-gray);
-            border-radius: 10px;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .location-input input:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
-        }
-
-        .location-input button {
-            background-color: var(--primary-green);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 16px 22px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-
-        .location-input button:hover {
-            background-color: var(--dark-green);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 184, 148, 0.2);
-        }
-
-        /* QR Code Section */
-        .qr-section {
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 2px dashed var(--medium-gray);
-            text-align: center;
-        }
-
-        .qr-section h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .qr-code {
-            max-width: 200px;
-            margin: 0 auto 15px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border: 3px solid var(--primary-green);
-        }
-
-        .qr-note {
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
-            line-height: 1.5;
-        }
-
-        .qr-note strong {
-            color: var(--dark-green);
-            font-weight: 700;
-        }
-
-        .order-ref-note {
-            background-color: var(--light-green);
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            font-size: 15px;
-            color: var(--dark-gray);
-            border-left: 4px solid var(--primary-green);
-        }
-
-        .order-ref-note strong {
-            color: var(--dark-green);
-            font-weight: 800;
-        }
-
-        .random-order-number {
-            font-weight: 900;
-            color: #ff6b6b;
-            background-color: #fff5f5;
-            padding: 4px 12px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-left: 5px;
-            border: 2px solid #ffcccc;
-        }
-
-        /* New UPI Payment Button */
-        .upi-payment-btn {
-            width: 100%;
-            background: linear-gradient(to right, #6c5ce7, #a463f5);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
-            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
-        }
-
-        .upi-payment-btn:hover {
-            background: linear-gradient(to right, #5b4bc4, #8c4ed9);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(108, 92, 231, 0.3);
-        }
-
-        .upi-payment-btn i {
-            font-size: 22px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-gray);
-            color: white;
-            padding: 50px 0 30px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-section h3 {
-            font-size: 24px;
-            margin-bottom: 25px;
-            color: var(--primary-green);
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: var(--primary-green);
-            bottom: 0;
-            left: 0;
-            border-radius: 2px;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .contact-info div {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .contact-info i {
-            color: var(--primary-green);
-            font-size: 18px;
-            width: 24px;
-        }
-        
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #25D366;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 15px;
-            transition: var(--transition);
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
-            border-top: 1px solid #495057;
-            color: #adb5bd;
-            font-size: 15px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .main-content {
-                flex-wrap: wrap;
-            }
-            
-            .category-list {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .category-item {
-                flex: 1;
-                min-width: 280px;
-            }
-            
-            .menu-items {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .logo-area {
-                align-items: center;
-                text-align: center;
-            }
-            
-            .slogan::before {
-                display: none;
-            }
-            
-            .catering-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .menu-items {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
-            .category-item {
-                min-width: 100%;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hotel-name {
-                font-size: 36px;
-            }
-            
-            .slogan {
-                font-size: 18px;
-            }
-            
-            .catering-text {
-                font-size: 16px;
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .category-list {
-                flex-direction: column;
-            }
-            
-            .category-item {
-                min-width: 100%;
-            }
-            
-            .menu-items {
-                grid-template-columns: 1fr;
-            }
-            
-            .item-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .item-price {
-                margin-left: 0;
-                align-self: flex-start;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-        
-        @keyframes cartBounce {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
-        
-        .cart-bounce {
-            animation: cartBounce 0.5s ease;
-        }
-        
-        .empty-cart {
-            text-align: center;
-            padding: 50px 20px;
-            color: #adb5bd;
-        }
-        
-        .empty-cart i {
-            font-size: 70px;
-            margin-bottom: 20px;
-            color: #dee2e6;
-            opacity: 0.7;
-        }
-        
-        .empty-cart p {
-            font-size: 18px;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .menu-item, .category-item, .order-panel, .categories-sidebar, .menu-section {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .upi-modal-close {
+            position: absolute; top: 14px; right: 18px;
+            font-size: 26px; cursor: pointer; color: #aaa;
+            background: none; border: none; font-weight: 700; line-height: 1;
+            transition: color 0.2s;
+        }
+        .upi-modal-close:hover { color: #333; }
+        .upi-modal-icon { font-size: 40px; margin-bottom: 8px; }
+        .upi-modal h3 { font-size: 22px; font-weight: 800; color: #2d3436; margin-bottom: 4px; }
+        .upi-modal .upi-order-num { font-size: 13px; color: #888; margin-bottom: 12px; }
+        .upi-modal .upi-amount-display {
+            font-size: 42px; font-weight: 900; color: #6c5ce7;
+            margin: 8px 0 20px;
+            background: linear-gradient(135deg, #6c5ce7, #a463f5);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .upi-divider { height: 1px; background: #eee; margin: 16px 0; }
+        .upi-modal .upi-id-label { font-size: 13px; color: #888; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .upi-modal .upi-id-box {
+            background: #f7f7f7; border-radius: 12px; padding: 14px 16px;
+            display: flex; align-items: center; justify-content: space-between; gap: 10px;
+            border: 2px solid #eee; margin-bottom: 18px;
+        }
+        .upi-modal .upi-id-box span { font-size: 15px; font-weight: 700; color: #2d3436; word-break: break-all; text-align: left; }
+        .upi-modal .copy-btn {
+            background: #00b894; color: white; border: none;
+            padding: 9px 16px; border-radius: 8px; font-size: 13px;
+            font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
+        }
+        .upi-modal .copy-btn:hover { background: #00a085; transform: scale(1.05); }
+        .upi-modal .copy-btn.copied { background: #2d3436; }
+        .upi-apps-label { font-size: 13px; color: #888; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .upi-modal .upi-apps-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+        .upi-app-btn {
+            padding: 11px 16px; border-radius: 10px; border: none;
+            font-size: 14px; font-weight: 700; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center; gap: 7px;
+            text-decoration: none; color: white;
+        }
+        .upi-app-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .upi-app-btn.gpay { background: #4285F4; }
+        .upi-app-btn.phonepe { background: #5f259f; }
+        .upi-app-btn.paytm { background: #002970; }
+        .upi-app-btn.other { background: #636e72; }
+        .upi-modal .upi-note {
+            font-size: 12px; color: #888; margin-top: 12px; line-height: 1.6;
+            background: #f8f9fa; padding: 10px 12px; border-radius: 8px; text-align: left;
+        }
+        .upi-modal .upi-note strong { color: #2d3436; }
+        /* ======= END UPI MODAL ======= */
     </style>
 </head>
 <body>
+
+    <!-- UPI Payment Modal -->
+    <div class="upi-modal-overlay" id="upiModalOverlay">
+        <div class="upi-modal">
+            <button class="upi-modal-close" id="upiModalClose">&times;</button>
+            <div class="upi-modal-icon">💜</div>
+            <h3>Pay via UPI</h3>
+            <div class="upi-order-num" id="modalOrderNum">Order: HH00000</div>
+            <div class="upi-amount-display">₹<span id="modalAmount">0.00</span></div>
+
+            <div class="upi-divider"></div>
+
+            <div class="upi-id-label">UPI ID</div>
+            <div class="upi-id-box">
+                <span id="modalUpiId">hotelharsha@okhdfcbank</span>
+                <button class="copy-btn" id="copyUpiBtn">Copy</button>
+            </div>
+
+            <div class="upi-apps-label">Open your UPI app</div>
+            <div class="upi-apps-row">
+                <a class="upi-app-btn gpay" id="gpayBtn" href="#"><i class="fas fa-mobile-alt"></i> GPay</a>
+                <a class="upi-app-btn phonepe" id="phonepeBtn" href="#"><i class="fas fa-mobile-alt"></i> PhonePe</a>
+                <a class="upi-app-btn paytm" id="paytmBtn" href="#"><i class="fas fa-mobile-alt"></i> Paytm</a>
+                <a class="upi-app-btn other" id="otherBtn" href="#"><i class="fas fa-ellipsis-h"></i> Other</a>
+            </div>
+
+            <div class="upi-divider"></div>
+
+            <div class="upi-note">
+                <strong>How to pay:</strong><br>
+                1. Copy the UPI ID above, or tap an app button<br>
+                2. Enter amount <strong>₹<span class="modal-amt-inline">0.00</span></strong> and pay<br>
+                3. After payment, share screenshot on WhatsApp with your order number
+            </div>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header>
         <div class="container header-container">
@@ -1283,68 +303,41 @@
         </div>
     </header>
 
-    <!-- NEW TIMING BANNER (7am - 7pm) -->
     <div class="timing-banner">
         <i class="fas fa-clock"></i> Open: 7:00 AM – 7:00 PM
     </div>
 
-    <!-- Main Content -->
     <div class="container main-content">
-        <!-- Categories Sidebar with Images -->
         <div class="categories-sidebar">
             <h2><i class="fas fa-utensils"></i> Food Categories</h2>
             <div class="category-list">
-                <!-- Most Rated -->
                 <div class="category-item most-rated-category active" data-category="most-rated">
                     <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Most Rated" class="category-image">
-                    <div class="category-overlay">
-                        <h3>Most Rated</h3>
-                        <p>Customer Favorites</p>
-                    </div>
+                    <div class="category-overlay"><h3>Most Rated</h3><p>Customer Favorites</p></div>
                 </div>
-                <!-- Combo Meals (new) -->
-               
                 <div class="category-item" data-category="south-indian">
                     <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="South Indian" class="category-image">
-                    <div class="category-overlay">
-                        <h3>South Indian</h3>
-                        <p>Idli, Dosa & Traditional Specials</p>
-                    </div>
+                    <div class="category-overlay"><h3>South Indian</h3><p>Idli, Dosa & Traditional Specials</p></div>
                 </div>
                 <div class="category-item" data-category="meals">
                     <img src="https://images.unsplash.com/photo-1742281257687-092746ad6021?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meals" class="category-image">
-                    <div class="category-overlay">
-                        <h3>Meals</h3>
-                        <p>South Indian Meals (12 onwards)</p>
-                    </div>
+                    <div class="category-overlay"><h3>Meals</h3><p>South Indian Meals (12 onwards)</p></div>
                 </div>
                 <div class="category-item" data-category="starters">
                     <img src="https://images.unsplash.com/photo-1643478224346-47bd9ed48e36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Starters" class="category-image">
-                    <div class="category-overlay">
-                        <h3>Starters</h3>
-                        <p>Chinese & Manchurian Specials 1pm onwards</p>
-                    </div>
+                    <div class="category-overlay"><h3>Starters</h3><p>Chinese & Manchurian Specials 1pm onwards</p></div>
                 </div>
                 <div class="category-item" data-category="north-indian">
                     <img src="https://images.unsplash.com/photo-1683533743190-89c9b19f9ea6?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="North Indian" class="category-image">
-                    <div class="category-overlay">
-                        <h3>North Indian</h3>
-                        <p>Roti & Delicious Curries 1pm onwards</p>
-                    </div>
+                    <div class="category-overlay"><h3>North Indian</h3><p>Roti & Delicious Curries 1pm onwards</p></div>
                 </div>
                 <div class="category-item" data-category="gravies">
                     <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Veg Gravies" class="category-image">
-                    <div class="category-overlay">
-                        <h3>Veg Gravies</h3>
-                        <p>Rich & Creamy Curries 1pm onwards</p>
-                    </div>
+                    <div class="category-overlay"><h3>Veg Gravies</h3><p>Rich & Creamy Curries 1pm onwards</p></div>
                 </div>
                 <div class="category-item" data-category="rice">
                     <img src="https://images.unsplash.com/photo-1733414717515-d997dafb7341?q=80&w=1254&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rice Recipes" class="category-image">
-                    <div class="category-overlay">
-                        <h3>Rice Recipes</h3>
-                        <p>Biryanis & Fried Rice 1pm onwards</p>
-                    </div>
+                    <div class="category-overlay"><h3>Rice Recipes</h3><p>Biryanis & Fried Rice 1pm onwards</p></div>
                 </div>
             </div>
         </div>
@@ -1363,27 +356,20 @@
             </div>
         </div>
 
-        <!-- Menu Items Section -->
         <div class="menu-section" id="menuSection">
             <div class="section-header">
                 <h2 id="categoryTitle">Most Rated - Customer Favorites</h2>
                 <div class="items-count" id="itemsCount">10 items</div>
             </div>
-            <div class="menu-items" id="menuItems">
-                <!-- Menu items will be dynamically loaded here -->
-            </div>
+            <div class="menu-items" id="menuItems"></div>
         </div>
 
-        <!-- Order Summary Panel - NOW AT THE BOTTOM -->
         <div class="order-panel" id="orderPanel">
             <h2><i class="fas fa-receipt"></i> Your Order</h2>
-            
-            <!-- Minimum Order Requirement -->
             <div class="min-order-requirement" id="minOrderRequirement">
                 <i class="fas fa-exclamation-circle"></i>
                 Minimum order amount: ₹99 (food total) + delivery charge if applicable
             </div>
-            
             <div class="order-items" id="orderItems">
                 <div class="empty-cart">
                     <i class="fas fa-shopping-basket"></i>
@@ -1391,26 +377,13 @@
                     <p>Add items from the menu</p>
                 </div>
             </div>
-            
             <div class="order-summary">
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span id="subtotal">₹0.00</span>
-                </div>
-                <div class="summary-row delivery-charge" id="deliveryChargeRow">
-                    <span>Delivery Charge</span>
-                    <span id="deliveryCharge">₹30.00</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Total</span>
-                    <span id="totalAmount">₹30.00</span>
-                </div>
+                <div class="summary-row"><span>Subtotal</span><span id="subtotal">₹0.00</span></div>
+                <div class="summary-row delivery-charge" id="deliveryChargeRow"><span>Delivery Charge</span><span id="deliveryCharge">₹30.00</span></div>
+                <div class="summary-row total"><span>Total</span><span id="totalAmount">₹30.00</span></div>
             </div>
-            
             <div class="location-section">
                 <h3><i class="fas fa-user"></i> Customer Details</h3>
-                
-                <!-- Phone Number Input -->
                 <div class="customer-detail-input">
                     <div class="input-group">
                         <label for="customerPhone"><i class="fas fa-phone"></i> Phone Number</label>
@@ -1418,24 +391,17 @@
                     </div>
                     <div class="phone-note">We'll contact you on this number for order confirmation</div>
                 </div>
-                
                 <h3><i class="fas fa-map-marker-alt"></i> Delivery Location</h3>
-                
-                <!-- Address Input -->
                 <div class="customer-detail-input">
                     <div class="input-group">
                         <label for="deliveryAddress"><i class="fas fa-home"></i> click green button to get live location<button type="submit"></button></label>
                         <textarea id="deliveryAddress" placeholder="House no, Street, Area, Landmark, City" rows="3"></textarea>
                     </div>
                 </div>
-                
-                <!-- Location Options -->
                 <div class="location-options">
                     <div class="location-input">
                         <input type="text" id="locationDetails" placeholder="type your location">
-                        <button id="locateMe" title="Use current location">
-                            <i class="fas fa-location-arrow"></i>
-                        </button>
+                        <button id="locateMe" title="Use current location"><i class="fas fa-location-arrow"></i></button>
                     </div>
                     <div class="map-link-container" id="mapLinkContainer">
                         <i class="fas fa-map-marked-alt"></i>
@@ -1443,31 +409,21 @@
                     </div>
                 </div>
             </div>
-            
             <button class="place-order-btn" id="placeOrderBtn" disabled>
                 <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
             </button>
-
-            <!-- New UPI Payment Button -->
             <button class="upi-payment-btn" id="upiPaymentBtn">
                 <i class="fas fa-mobile-alt"></i> Pay Online via UPI (₹<span id="upiAmount">0.00</span>)
             </button>
-            
-            <!-- QR Code Section -->
             <div class="qr-section">
                 <h3><i class="fas fa-qrcode"></i> Quick Payment</h3>
                 <img src="./Screenshot_20251223-164546_WhatsApp.jpg" alt="Hotel Harsha UPI QR Code" class="qr-code">
-                <div class="qr-note">
-                    Scan to pay via UPI. After payment, share screenshot with your <strong>order number</strong> on WhatsApp.
-                </div>
-                <div class="order-ref-note">
-                    Every order earns <strong>1HH point</strong> .<strong>1HH</strong> + <span class="random-order-number" id="randomOrderNumber">HH12345</span>
-                </div>
+                <div class="qr-note">Scan to pay via UPI. After payment, share screenshot with your <strong>order number</strong> on WhatsApp.</div>
+                <div class="order-ref-note">Every order earns <strong>1HH point</strong> .<strong>1HH</strong> + <span class="random-order-number" id="randomOrderNumber">HH12345</span></div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1475,32 +431,16 @@
                     <h3>Hotel Harsha</h3>
                     <p>Experience authentic South Indian, North Indian and Chinese cuisine delivered to your doorstep. Our mission is to bring the taste of Kollegala to your home with premium quality and taste.</p>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <div class="contact-info">
-                        <div>
-                            <i class="fas fa-phone"></i>
-                            <span>+91 93533 16903</span>
-                        </div>
-                        <div>
-                            <i class="fas fa-envelope"></i>
-                            <span>orders@hotelharsha.com</span>
-                        </div>
-                        <div>
-                            <i class="fas fa-clock"></i>
-                            <span>Open: 7:00 AM - 8:00 PM</span>
-                        </div>
-                        <div>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kollegala, Karnataka</span>
-                        </div>
-                        <a href="https://wa.me/919353316903" class="whatsapp-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order on WhatsApp
-                        </a>
+                        <div><i class="fas fa-phone"></i><span>+91 93533 16903</span></div>
+                        <div><i class="fas fa-envelope"></i><span>orders@hotelharsha.com</span></div>
+                        <div><i class="fas fa-clock"></i><span>Open: 7:00 AM - 8:00 PM</span></div>
+                        <div><i class="fas fa-map-marker-alt"></i><span>Kollegala, Karnataka</span></div>
+                        <a href="https://wa.me/919353316903" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
                     </div>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Delivery Info</h3>
                     <p>We deliver within 2km radius. Delivery charge: ₹30 (Free for combo specials). Delivery time: 15-30 minutes.</p>
@@ -1509,15 +449,11 @@
                     <p>50HH point=10% discount, AND IMAGES ABOVE ARE creative visualisation</p>
                 </div>
             </div>
-            
-            <div class="copyright">
-                &copy; 2026 Hotel Harsha. All rights reserved. | ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ
-            </div>
+            <div class="copyright">&copy; 2026 Hotel Harsha. All rights reserved. | ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ</div>
         </div>
     </footer>
 
     <script>
-        // Menu data - organized by categories
         const menuData = {
             "most-rated": [
                 { name: "Idli (2 pcs)", price: 30.00, category: "South Indian", mostRated: true },
@@ -1529,9 +465,8 @@
                 { name: "Roti Curry", price: 80.00, category: "North Indian", mostRated: true, timing: "1pm onwards" },
                 { name: "Noodles Simply", price: 100.00, category: "Starters", mostRated: true, timing: "1pm onwards" },
                 { name: "Gobi Manchurian", price: 80.00, category: "Starters", mostRated: true, timing: "1pm onwards" },
-                { name: "Veg Fried Rice", price: 100.00, category: "Rice", mostRated: true, timing: "1pm onwards" } // price changed to 90
+                { name: "Veg Fried Rice", price: 100.00, category: "Rice", mostRated: true, timing: "1pm onwards" }
             ],
-
             "south-indian": [
                 { name: "Idli (2 pcs)", price: 30.00, category: "Breakfast", mostRated: true },
                 { name: "Vade (1 pc)", price: 20.00, category: "Breakfast", mostRated: true },
@@ -1651,7 +586,7 @@
                 { name: "Palak Khichdi", price: 160.00, category: "Special Rice", timing: "1pm onwards" },
                 { name: "Green Peas Pulao", price: 160.00, category: "Special Rice", timing: "1pm onwards" },
                 { name: "Dal Khichdi", price: 150.00, category: "Special Rice", timing: "1pm onwards" },
-                { name: "Veg Fried Rice", price: 100.00, category: "Fried Rice", mostRated: true, timing: "1pm onwards" }, // price changed to 90
+                { name: "Veg Fried Rice", price: 100.00, category: "Fried Rice", mostRated: true, timing: "1pm onwards" },
                 { name: "Jeera Rice", price: 110.00, category: "Fried Rice", timing: "1pm onwards" },
                 { name: "Ghee Rice", price: 130.00, category: "Fried Rice", timing: "1pm onwards" },
                 { name: "Schezwan Fried Rice", price: 160.00, category: "Fried Rice", timing: "1pm onwards" },
@@ -1661,7 +596,6 @@
             ]
         };
 
-        // Category titles mapping (added combo)
         const categoryTitles = {
             "most-rated": "Most Rated - Customer Favorites",
             "combo": "Combo special - Free Delivery!",
@@ -1673,36 +607,26 @@
             "rice": "The Rice Recipes (1pm onwards)"
         };
 
-        // Cart state
         let cart = [];
-        const baseDeliveryCharge = 30.00;          // updated to 30
-        const minimumOrderAmount = 99.00;          // updated to 99 (food total)
-        const upiId = "hotelharsha@okhdfcbank";     // Replace with actual UPI ID
+        const baseDeliveryCharge = 30.00;
+        const minimumOrderAmount = 99.00;
+        const upiId = "hotelharsha@okhdfcbank";
         let googleMapsLink = "";
         let currentOrderNumber = generateRandomOrderNumber();
 
-        // NEW: free delivery only if ALL items in cart are combos
         function isFreeDeliveryEligible() {
             if (cart.length === 0) return false;
-            // Check every item: must be either Tiffin Combo 99 or North Meal Combo 199
-            return cart.every(item => 
-                item.name === "Tiffin Combo 99" || item.name === "North Meal Combo 199"
-            );
+            return cart.every(item => item.name === "Tiffin Combo 99" || item.name === "North Meal Combo 199");
         }
 
-        // Function to generate random order number
         function generateRandomOrderNumber() {
-            const prefix = 'HH';
-            const randomNum = Math.floor(10000 + Math.random() * 90000);
-            return prefix + randomNum;
+            return 'HH' + Math.floor(10000 + Math.random() * 90000);
         }
 
-        // Update order number display
         function updateOrderNumberDisplay() {
             document.getElementById('randomOrderNumber').textContent = currentOrderNumber;
         }
 
-        // DOM elements
         const menuItemsContainer = document.getElementById('menuItems');
         const orderItemsContainer = document.getElementById('orderItems');
         const cartCount = document.getElementById('cartCount');
@@ -1726,142 +650,166 @@
         const minOrderRequirement = document.getElementById('minOrderRequirement');
         const deliveryChargeRow = document.getElementById('deliveryChargeRow');
 
-        // Add event listener for cart icon to scroll to order panel
-        cartIcon.addEventListener('click', function() {
-            document.getElementById('orderPanel').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
+        // UPI Modal elements
+        const upiModalOverlay = document.getElementById('upiModalOverlay');
+        const upiModalClose = document.getElementById('upiModalClose');
+        const modalAmount = document.getElementById('modalAmount');
+        const modalOrderNum = document.getElementById('modalOrderNum');
+        const copyUpiBtn = document.getElementById('copyUpiBtn');
+        const gpayBtn = document.getElementById('gpayBtn');
+        const phonepeBtn = document.getElementById('phonepeBtn');
+        const paytmBtn = document.getElementById('paytmBtn');
+        const otherBtn = document.getElementById('otherBtn');
+
+        function buildUpiUrl(app, amount) {
+            const base = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
+            if (app === 'gpay') return `tez://upi/pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
+            if (app === 'phonepe') return `phonepe://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
+            if (app === 'paytm') return `paytmmp://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
+            return base;
+        }
+
+        function openUpiModal(total) {
+            const amt = total.toFixed(2);
+            modalAmount.textContent = amt;
+            document.querySelectorAll('.modal-amt-inline').forEach(el => el.textContent = amt);
+            modalOrderNum.textContent = 'Order: ' + currentOrderNumber;
+            document.getElementById('modalUpiId').textContent = upiId;
+
+            // Set all app button links
+            gpayBtn.href = buildUpiUrl('gpay', amt);
+            phonepeBtn.href = buildUpiUrl('phonepe', amt);
+            paytmBtn.href = buildUpiUrl('paytm', amt);
+            otherBtn.href = buildUpiUrl('other', amt);
+
+            upiModalOverlay.classList.add('active');
+        }
+
+        function closeUpiModal() {
+            upiModalOverlay.classList.remove('active');
+        }
+
+        upiModalClose.addEventListener('click', closeUpiModal);
+        upiModalOverlay.addEventListener('click', function(e) {
+            if (e.target === upiModalOverlay) closeUpiModal();
+        });
+
+        copyUpiBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(upiId).then(() => {
+                copyUpiBtn.textContent = '✓ Copied!';
+                copyUpiBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyUpiBtn.textContent = 'Copy';
+                    copyUpiBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const el = document.createElement('textarea');
+                el.value = upiId;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                copyUpiBtn.textContent = '✓ Copied!';
+                copyUpiBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyUpiBtn.textContent = 'Copy';
+                    copyUpiBtn.classList.remove('copied');
+                }, 2000);
             });
         });
 
-        // Initialize the app
+        cartIcon.addEventListener('click', function() {
+            document.getElementById('orderPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Load the initial category (most-rated)
             loadCategory('most-rated');
             updateOrderNumberDisplay();
 
-            // Add event listeners to category items
             categoryItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const category = this.getAttribute('data-category');
-                    
-                    // Update active category
                     categoryItems.forEach(cat => cat.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    // Load the category items
                     loadCategory(category);
-                    
-                    // Scroll to the menu section smoothly
                     menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             });
-            
-            // Add event listener for locate me button
+
             locateMeButton.addEventListener('click', function() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
                         function(position) {
                             const lat = position.coords.latitude;
                             const lng = position.coords.longitude;
-                            
-                            // Create Google Maps link
                             googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
-                            
-                            // Use reverse geocoding to get address from coordinates
                             fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
                                 .then(response => response.json())
                                 .then(data => {
-                                    const address = data.display_name;
-                                    deliveryAddressTextarea.value = address.substring(0, 200);
-                                    
-                                    // Update map link display
+                                    deliveryAddressTextarea.value = data.display_name.substring(0, 200);
                                     mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
                                     mapLinkContainer.style.cursor = "pointer";
-                                    mapLinkContainer.onclick = function() {
-                                        window.open(googleMapsLink, '_blank');
-                                    };
+                                    mapLinkContainer.onclick = function() { window.open(googleMapsLink, '_blank'); };
                                 })
-                                .catch(error => {
-                                    console.error('Error fetching address:', error);
+                                .catch(() => {
                                     deliveryAddressTextarea.value = `Near ${lat.toFixed(4)}, ${lng.toFixed(4)}`;
                                     mapLinkText.textContent = `Google Maps Location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
                                     mapLinkContainer.style.cursor = "pointer";
-                                    mapLinkContainer.onclick = function() {
-                                        window.open(googleMapsLink, '_blank');
-                                    };
+                                    mapLinkContainer.onclick = function() { window.open(googleMapsLink, '_blank'); };
                                 });
                         },
-                        function(error) {
-                            console.error('Error getting location:', error);
-                            alert('Unable to retrieve your location. Please enter your address manually.');
-                        }
+                        function() { alert('Unable to retrieve your location. Please enter your address manually.'); }
                     );
                 } else {
                     alert('Geolocation is not supported by your browser.');
                 }
             });
-            
-            // Add event listener for address input to generate Google Maps link
+
             deliveryAddressTextarea.addEventListener('input', function() {
                 const address = this.value.trim();
                 if (address.length > 5) {
                     googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
                     mapLinkText.textContent = `Google Maps Link for entered address`;
                     mapLinkContainer.style.cursor = "pointer";
-                    mapLinkContainer.onclick = function() {
-                        window.open(googleMapsLink, '_blank');
-                    };
+                    mapLinkContainer.onclick = function() { window.open(googleMapsLink, '_blank'); };
                 } else {
                     mapLinkText.textContent = "Google Maps link will appear here after entering address";
                     mapLinkContainer.style.cursor = "default";
                     mapLinkContainer.onclick = null;
                 }
             });
-            
-            // Add event listener for place order button
+
             placeOrderButton.addEventListener('click', placeOrder);
-            
-            // Add event listener for UPI payment button
+
+            // UPI Payment Button - opens modal
             upiPaymentBtn.addEventListener('click', function() {
                 if (cart.length === 0) {
                     alert('Your cart is empty. Please add items before payment.');
                     return;
                 }
-                
                 const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
                 if (subtotal < minimumOrderAmount) {
                     alert(`Minimum food order is ₹${minimumOrderAmount}. Please add more items.`);
                     return;
                 }
-                
                 const freeDelivery = isFreeDeliveryEligible();
                 const effectiveDelivery = freeDelivery ? 0 : baseDeliveryCharge;
                 const total = subtotal + effectiveDelivery;
-                
-                // Create UPI intent URL
-                const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${total.toFixed(2)}&tn=Order%20${currentOrderNumber}&cu=INR`;
-                
-                // Open UPI app
-                window.location.href = upiUrl;
+                openUpiModal(total);
             });
-            
-            // Initialize cart
+
             updateCart();
         });
 
-        // Load category items
         function loadCategory(category) {
             const items = menuData[category];
             categoryTitleElement.textContent = categoryTitles[category];
             itemsCountElement.textContent = `${items.length} items`;
-            
             menuItemsContainer.innerHTML = '';
-            
             items.forEach(item => {
                 const menuItemElement = document.createElement('div');
                 menuItemElement.className = 'menu-item';
-                
                 let timingHtml = item.timing ? `<div class="item-timing"><i class="fas fa-clock"></i> ${item.timing}</div>` : '';
                 let badgeHtml = '';
                 if (item.mostRated) {
@@ -1869,7 +817,6 @@
                 } else if (item.freeDelivery) {
                     badgeHtml = '<div class="free-delivery-badge"><i class="fas fa-truck"></i> Free Delivery</div>';
                 }
-                
                 menuItemElement.innerHTML = `
                     <div class="item-details">
                         <div class="item-header">
@@ -1884,47 +831,34 @@
                         </button>
                     </div>
                 `;
-                
                 menuItemsContainer.appendChild(menuItemElement);
             });
-            
             document.querySelectorAll('.add-to-cart').forEach(button => {
                 button.addEventListener('click', function() {
-                    const name = this.getAttribute('data-name');
-                    const price = parseFloat(this.getAttribute('data-price'));
-                    addToCart(name, price);
+                    addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')));
                 });
             });
         }
 
-        // Add item to cart
         function addToCart(name, price) {
             const existingItemIndex = cart.findIndex(item => item.name === name);
-            
             if (existingItemIndex !== -1) {
                 cart[existingItemIndex].quantity += 1;
             } else {
                 cart.push({ name, price, quantity: 1 });
             }
-            
             updateCart();
-            
             cartIcon.classList.add('cart-bounce');
             setTimeout(() => cartIcon.classList.remove('cart-bounce'), 500);
         }
 
-        // Update cart UI
         function updateCart() {
             const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
             cartCount.textContent = totalItems;
-            
             const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            
-            // Determine if free delivery applies (only if all items are combos)
             const freeDelivery = isFreeDeliveryEligible();
             const effectiveDelivery = freeDelivery ? 0 : baseDeliveryCharge;
-            
-            // Update delivery charge display
+
             deliveryChargeElement.textContent = `₹${effectiveDelivery.toFixed(2)}`;
             if (freeDelivery) {
                 deliveryChargeRow.classList.add('free');
@@ -1933,8 +867,7 @@
                 deliveryChargeRow.classList.remove('free');
                 deliveryChargeElement.textContent = `₹${baseDeliveryCharge.toFixed(2)}`;
             }
-            
-            // Minimum order requirement (based on subtotal only)
+
             if (subtotal >= minimumOrderAmount) {
                 minOrderRequirement.innerHTML = `<i class="fas fa-check-circle"></i> Minimum food order met! (₹${subtotal.toFixed(2)} ≥ ₹${minimumOrderAmount})`;
                 minOrderRequirement.classList.add('met');
@@ -1947,19 +880,11 @@
                 placeOrderButton.disabled = true;
                 placeOrderButton.classList.add('disabled');
             }
-            
-            // Render order items
+
             if (cart.length === 0) {
-                orderItemsContainer.innerHTML = `
-                    <div class="empty-cart">
-                        <i class="fas fa-shopping-basket"></i>
-                        <p>Your cart is empty</p>
-                        <p>Add items from the menu</p>
-                    </div>
-                `;
+                orderItemsContainer.innerHTML = `<div class="empty-cart"><i class="fas fa-shopping-basket"></i><p>Your cart is empty</p><p>Add items from the menu</p></div>`;
             } else {
                 orderItemsContainer.innerHTML = '';
-                
                 cart.forEach((item, index) => {
                     const itemTotal = item.price * item.quantity;
                     const orderItemElement = document.createElement('div');
@@ -1972,141 +897,58 @@
                             <button class="quantity-btn increase" data-index="${index}">+</button>
                         </div>
                         <div class="item-total">₹${itemTotal.toFixed(2)}</div>
-                        <button class="remove-item" data-index="${index}">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                        <button class="remove-item" data-index="${index}"><i class="fas fa-trash"></i></button>
                     `;
-                    
                     orderItemsContainer.appendChild(orderItemElement);
                 });
-                
-                document.querySelectorAll('.decrease').forEach(btn => btn.addEventListener('click', function() {
-                    decreaseQuantity(parseInt(this.getAttribute('data-index')));
-                }));
-                document.querySelectorAll('.increase').forEach(btn => btn.addEventListener('click', function() {
-                    increaseQuantity(parseInt(this.getAttribute('data-index')));
-                }));
-                document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', function() {
-                    removeFromCart(parseInt(this.getAttribute('data-index')));
-                }));
+                document.querySelectorAll('.decrease').forEach(btn => btn.addEventListener('click', function() { decreaseQuantity(parseInt(this.getAttribute('data-index'))); }));
+                document.querySelectorAll('.increase').forEach(btn => btn.addEventListener('click', function() { increaseQuantity(parseInt(this.getAttribute('data-index'))); }));
+                document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', function() { removeFromCart(parseInt(this.getAttribute('data-index'))); }));
             }
-            
-            // Update totals
+
             const total = subtotal + effectiveDelivery;
             subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
             totalAmountElement.textContent = `₹${total.toFixed(2)}`;
             upiAmountSpan.textContent = total.toFixed(2);
         }
 
-        function increaseQuantity(index) {
-            cart[index].quantity += 1;
-            updateCart();
-        }
+        function increaseQuantity(index) { cart[index].quantity += 1; updateCart(); }
+        function decreaseQuantity(index) { if (cart[index].quantity > 1) { cart[index].quantity -= 1; } else { cart.splice(index, 1); } updateCart(); }
+        function removeFromCart(index) { cart.splice(index, 1); updateCart(); }
 
-        function decreaseQuantity(index) {
-            if (cart[index].quantity > 1) {
-                cart[index].quantity -= 1;
-            } else {
-                cart.splice(index, 1);
-            }
-            updateCart();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCart();
-        }
-
-        // Place order via WhatsApp
         function placeOrder() {
-            if (cart.length === 0) {
-                alert('Your cart is empty. Please add items before placing an order.');
-                return;
-            }
-            
+            if (cart.length === 0) { alert('Your cart is empty. Please add items before placing an order.'); return; }
             const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            
-            if (subtotal < minimumOrderAmount) {
-                alert(`Minimum food order is ₹${minimumOrderAmount}. Please add more items.`);
-                return;
-            }
-            
+            if (subtotal < minimumOrderAmount) { alert(`Minimum food order is ₹${minimumOrderAmount}. Please add more items.`); return; }
             const phone = customerPhoneInput.value.trim();
             const address = deliveryAddressTextarea.value.trim();
             const locationDetails = locationDetailsInput.value.trim();
-            
-            if (!phone) {
-                alert('Please enter your phone number.');
-                customerPhoneInput.focus();
-                return;
-            }
-            if (!/^\d{10}$/.test(phone)) {
-                alert('Please enter a valid 10-digit phone number.');
-                customerPhoneInput.focus();
-                return;
-            }
-            if (!address) {
-                alert('Please enter your delivery address.');
-                deliveryAddressTextarea.focus();
-                return;
-            }
-            if (address.length < 10) {
-                alert('Please enter a complete delivery address.');
-                deliveryAddressTextarea.focus();
-                return;
-            }
-            if (!googleMapsLink) {
-                alert('Please wait for Google Maps link to generate or enter a valid address.');
-                return;
-            }
-            
+            if (!phone) { alert('Please enter your phone number.'); customerPhoneInput.focus(); return; }
+            if (!/^\d{10}$/.test(phone)) { alert('Please enter a valid 10-digit phone number.'); customerPhoneInput.focus(); return; }
+            if (!address) { alert('Please enter your delivery address.'); deliveryAddressTextarea.focus(); return; }
+            if (address.length < 10) { alert('Please enter a complete delivery address.'); deliveryAddressTextarea.focus(); return; }
+            if (!googleMapsLink) { alert('Please wait for Google Maps link to generate or enter a valid address.'); return; }
             const freeDelivery = isFreeDeliveryEligible();
             const effectiveDelivery = freeDelivery ? 0 : baseDeliveryCharge;
             const total = subtotal + effectiveDelivery;
-            
-            let orderText = `*Hotel Harsha - Food Order*\n\n`;
-            orderText += `*Order Number:* ${currentOrderNumber}\n\n`;
-            orderText += `*Customer Details:*\n`;
-            orderText += `Phone: ${phone}\n`;
-            orderText += `Address: ${address}\n`;
+            let orderText = `*Hotel Harsha - Food Order*\n\n*Order Number:* ${currentOrderNumber}\n\n*Customer Details:*\nPhone: ${phone}\nAddress: ${address}\n`;
             if (locationDetails) orderText += `Additional Details: ${locationDetails}\n`;
-            orderText += `Google Maps: ${googleMapsLink}\n\n`;
-            orderText += `*Order Items:*\n`;
-            
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                orderText += `- ${item.name} (x${item.quantity}) - ₹${itemTotal.toFixed(2)}\n`;
-            });
-            
-            orderText += `\n*Order Summary:*\n`;
-            orderText += `Subtotal: ₹${subtotal.toFixed(2)}\n`;
-            orderText += `Delivery Charge: ₹${effectiveDelivery.toFixed(2)} ${freeDelivery ? '(Free Combo only)' : ''}\n`;
-            orderText += `*Total: ₹${total.toFixed(2)}*\n`;
-            orderText += `Minimum food order: ₹${minimumOrderAmount}\n`;
-            orderText += `Order Points: 1HH point earned\n`;
-            orderText += `Order Ref: 1HH\n\n`;
-            orderText += `ನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\n`;
-            orderText += `Please confirm this order. Thank you!`;
-            
-            const encodedMessage = encodeURIComponent(orderText);
-            const phoneNumber = '9353316903';  // updated number
-            const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedMessage}`;
-            
+            orderText += `Google Maps: ${googleMapsLink}\n\n*Order Items:*\n`;
+            cart.forEach(item => { orderText += `- ${item.name} (x${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}\n`; });
+            orderText += `\n*Order Summary:*\nSubtotal: ₹${subtotal.toFixed(2)}\nDelivery Charge: ₹${effectiveDelivery.toFixed(2)} ${freeDelivery ? '(Free Combo only)' : ''}\n*Total: ₹${total.toFixed(2)}*\nMinimum food order: ₹${minimumOrderAmount}\nOrder Points: 1HH point earned\nOrder Ref: 1HH\n\nನಮ್ಮ ಕೊಳ್ಳೇಗಾಲ ನಮ್ಮ ಹೆಮ್ಮೆ\nPlease confirm this order. Thank you!`;
+            const whatsappURL = `https://wa.me/919353316903?text=${encodeURIComponent(orderText)}`;
             currentOrderNumber = generateRandomOrderNumber();
             updateOrderNumberDisplay();
-            
             cart = [];
             updateCart();
-            
             customerPhoneInput.value = '';
             deliveryAddressTextarea.value = '';
             locationDetailsInput.value = '';
             mapLinkText.textContent = "Google Maps link will appear here after entering address";
             mapLinkContainer.style.cursor = "default";
             mapLinkContainer.onclick = null;
-            
             window.location.href = whatsappURL;
         }
     </script>
 </body>
-    </html>
+</html>
