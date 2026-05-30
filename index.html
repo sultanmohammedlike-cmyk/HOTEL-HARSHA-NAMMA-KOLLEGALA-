@@ -227,7 +227,7 @@
             padding: 11px 16px; border-radius: 10px; border: none;
             font-size: 14px; font-weight: 700; cursor: pointer;
             transition: all 0.2s; display: flex; align-items: center; gap: 7px;
-            text-decoration: none; color: white;
+            color: white;
         }
         .upi-app-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
         .upi-app-btn.gpay { background: #4285F4; }
@@ -263,10 +263,12 @@
 
             <div class="upi-apps-label">Open your UPI app</div>
             <div class="upi-apps-row">
-                <a class="upi-app-btn gpay" id="gpayBtn" href="#"><i class="fas fa-mobile-alt"></i> GPay</a>
-                <a class="upi-app-btn phonepe" id="phonepeBtn" href="#"><i class="fas fa-mobile-alt"></i> PhonePe</a>
-                <a class="upi-app-btn paytm" id="paytmBtn" href="#"><i class="fas fa-mobile-alt"></i> Paytm</a>
-                <a class="upi-app-btn other" id="otherBtn" href="#"><i class="fas fa-ellipsis-h"></i> Other</a>
+                <!-- FIX: Changed from <a> tags to <button> elements; UPI deep links are fired
+                     via window.location.href in JS to work reliably on both Android and iOS -->
+                <button class="upi-app-btn gpay" id="gpayBtn"><i class="fas fa-mobile-alt"></i> GPay</button>
+                <button class="upi-app-btn phonepe" id="phonepeBtn"><i class="fas fa-mobile-alt"></i> PhonePe</button>
+                <button class="upi-app-btn paytm" id="paytmBtn"><i class="fas fa-mobile-alt"></i> Paytm</button>
+                <button class="upi-app-btn other" id="otherBtn"><i class="fas fa-ellipsis-h"></i> Other</button>
             </div>
 
             <div class="upi-divider"></div>
@@ -614,6 +616,9 @@
         let googleMapsLink = "";
         let currentOrderNumber = generateRandomOrderNumber();
 
+        // Stores the current UPI total so app buttons can read it
+        let currentUpiTotal = 0;
+
         function isFreeDeliveryEligible() {
             if (cart.length === 0) return false;
             return cart.every(item => item.name === "Tiffin Combo 99" || item.name === "North Meal Combo 199");
@@ -661,27 +666,56 @@
         const paytmBtn = document.getElementById('paytmBtn');
         const otherBtn = document.getElementById('otherBtn');
 
+        // FIX: Build UPI deep-link URLs correctly for each app.
+        // GPay uses the "tez://" scheme on Android; PhonePe and Paytm use their own schemes.
+        // The generic "upi://" fallback works on most Android UPI-enabled browsers.
+        // All links are opened via window.location.href (not <a href>) so the browser
+        // actually attempts the app handoff instead of silently failing.
         function buildUpiUrl(app, amount) {
-            const base = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
-            if (app === 'gpay') return `tez://upi/pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
-            if (app === 'phonepe') return `intent://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR#Intent;scheme=phonepe;package=com.phonepe.app;end`;
-            if (app === 'paytm') return `paytmmp://pay?pa=${encodeURIComponent(upiId)}&pn=Hotel%20Harsha&am=${amount}&tn=Order%20${currentOrderNumber}&cu=INR`;
-            return base;
+            const encodedUpiId = encodeURIComponent(upiId);
+            const encodedName = encodeURIComponent('Hotel Harsha');
+            const encodedNote = encodeURIComponent('Order ' + currentOrderNumber);
+            if (app === 'gpay') {
+                return 'tez://upi/pay?pa=' + encodedUpiId + '&pn=' + encodedName + '&am=' + amount + '&tn=' + encodedNote + '&cu=INR';
+            }
+            if (app === 'phonepe') {
+                return 'phonepe://pay?pa=' + encodedUpiId + '&pn=' + encodedName + '&am=' + amount + '&tn=' + encodedNote + '&cu=INR';
+            }
+            if (app === 'paytm') {
+                return 'paytmmp://pay?pa=' + encodedUpiId + '&pn=' + encodedName + '&am=' + amount + '&tn=' + encodedNote + '&cu=INR';
+            }
+            // Generic UPI intent — opens the system UPI app chooser on Android
+            return 'upi://pay?pa=' + encodedUpiId + '&pn=' + encodedName + '&am=' + amount + '&tn=' + encodedNote + '&cu=INR';
+        }
+
+        // FIX: Try the app-specific deep link; if the app isn't installed the scheme
+        // will fail silently, so after a short delay fall back to the generic upi:// link.
+        function launchUpiApp(app) {
+            var amt = currentUpiTotal.toFixed(2);
+            var deepLink = buildUpiUrl(app, amt);
+            var genericLink = buildUpiUrl('other', amt);
+
+            // Attempt to open the specific app
+            window.location.href = deepLink;
+
+            // Fallback: if we're still on this page after 1.5s, try the generic UPI link
+            if (app !== 'other') {
+                setTimeout(function() {
+                    // Only trigger fallback if the page is still visible (app didn't open)
+                    if (!document.hidden) {
+                        window.location.href = genericLink;
+                    }
+                }, 1500);
+            }
         }
 
         function openUpiModal(total) {
-            const amt = total.toFixed(2);
+            currentUpiTotal = total;
+            var amt = total.toFixed(2);
             modalAmount.textContent = amt;
-            document.querySelectorAll('.modal-amt-inline').forEach(el => el.textContent = amt);
+            document.querySelectorAll('.modal-amt-inline').forEach(function(el) { el.textContent = amt; });
             modalOrderNum.textContent = 'Order: ' + currentOrderNumber;
             document.getElementById('modalUpiId').textContent = upiId;
-
-            // Set all app button links
-            gpayBtn.href = buildUpiUrl('gpay', amt);
-            phonepeBtn.href = buildUpiUrl('phonepe', amt);
-            paytmBtn.href = buildUpiUrl('paytm', amt);
-            otherBtn.href = buildUpiUrl('other', amt);
-
             upiModalOverlay.classList.add('active');
         }
 
@@ -694,29 +728,41 @@
             if (e.target === upiModalOverlay) closeUpiModal();
         });
 
+        // FIX: App buttons now call launchUpiApp() instead of navigating via href
+        gpayBtn.addEventListener('click', function() { launchUpiApp('gpay'); });
+        phonepeBtn.addEventListener('click', function() { launchUpiApp('phonepe'); });
+        paytmBtn.addEventListener('click', function() { launchUpiApp('paytm'); });
+        otherBtn.addEventListener('click', function() { launchUpiApp('other'); });
+
+        // FIX: Clipboard copy with proper fallback for older Android WebViews
         copyUpiBtn.addEventListener('click', function() {
-            navigator.clipboard.writeText(upiId).then(() => {
-                copyUpiBtn.textContent = '✓ Copied!';
-                copyUpiBtn.classList.add('copied');
-                setTimeout(() => {
-                    copyUpiBtn.textContent = 'Copy';
-                    copyUpiBtn.classList.remove('copied');
+            var btn = this;
+            function onCopied() {
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
                 }, 2000);
-            }).catch(() => {
-                // Fallback for older browsers
-                const el = document.createElement('textarea');
+            }
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(upiId).then(onCopied).catch(function() {
+                    fallbackCopy();
+                });
+            } else {
+                fallbackCopy();
+            }
+            function fallbackCopy() {
+                var el = document.createElement('textarea');
                 el.value = upiId;
+                el.style.position = 'fixed';
+                el.style.opacity = '0';
                 document.body.appendChild(el);
+                el.focus();
                 el.select();
-                document.execCommand('copy');
+                try { document.execCommand('copy'); onCopied(); } catch(e) {}
                 document.body.removeChild(el);
-                copyUpiBtn.textContent = '✓ Copied!';
-                copyUpiBtn.classList.add('copied');
-                setTimeout(() => {
-                    copyUpiBtn.textContent = 'Copy';
-                    copyUpiBtn.classList.remove('copied');
-                }, 2000);
-            });
+            }
         });
 
         cartIcon.addEventListener('click', function() {
